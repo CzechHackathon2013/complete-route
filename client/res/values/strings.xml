@@ -11,4 +11,5 @@
     <string name="company_item_category">Category</string>
     <string name="company_selected">Selected company</string>
     <string name="route_item_desc">Route description</string>
+    <string name="route_item_label">Routes:</string>
 </resources>
