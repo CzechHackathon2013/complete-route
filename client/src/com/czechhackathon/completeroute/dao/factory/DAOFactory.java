@@ -29,6 +29,7 @@ public abstract class DAOFactory {
 
     // List of DAO types supported by the factory
     public static final int JSON = 1;
+    public static final int MOCK = 2;
     // Default DAO factory
     public static final int DEFAULT_FACTORY = JSON;
 
@@ -38,6 +39,8 @@ public abstract class DAOFactory {
         switch (whichFactory) {
             case JSON:
                 return new JsonDAOFactory();
+            case MOCK:
+                return new MockDAOFactory();
             default:
                 return null;
         }
@@ -48,6 +51,8 @@ public abstract class DAOFactory {
         switch (DEFAULT_FACTORY) {
             case JSON:
                 return new JsonDAOFactory();
+            case MOCK:
+                return new MockDAOFactory();
             default:
                 return null;
         }

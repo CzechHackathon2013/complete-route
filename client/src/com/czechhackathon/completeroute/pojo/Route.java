@@ -21,13 +21,21 @@ package com.czechhackathon.completeroute.pojo;
  */
 public class Route {
 
+    private Company company;
     private String name;
     private String description;
     private int keypad;
-
     private Route route;
 
     public Route() {
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public String getName() {
