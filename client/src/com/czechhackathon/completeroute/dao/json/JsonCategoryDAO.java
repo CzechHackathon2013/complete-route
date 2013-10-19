@@ -17,6 +17,7 @@
 package com.czechhackathon.completeroute.dao.json;
 
 import com.czechhackathon.completeroute.dao.CategoryDAO;
+import com.czechhackathon.completeroute.pojo.Category;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class JsonCategoryDAO implements CategoryDAO {
      * @return all categories
      */
     @Override
-    public List<String> getCategories() {
+    public List<Category> getCategories() {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 

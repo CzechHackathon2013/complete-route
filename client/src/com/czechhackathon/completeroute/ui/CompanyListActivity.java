@@ -27,7 +27,7 @@ import com.czechhackathon.completeroute.ui.bar.ApplicationTitleBarActivity;
  *
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class CompleteRootActivity extends ApplicationTitleBarActivity {
+public class CompanyListActivity extends ApplicationTitleBarActivity {
 
     private CompleteRouteApplication app;
 

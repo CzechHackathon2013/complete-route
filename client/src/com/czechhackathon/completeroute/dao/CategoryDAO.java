@@ -16,6 +16,8 @@
 
 package com.czechhackathon.completeroute.dao;
 
+import com.czechhackathon.completeroute.pojo.Category;
+
 import java.util.List;
 
 /**
@@ -28,6 +30,6 @@ public interface CategoryDAO {
     /**
      * @return all categories
      */
-    List<String> getCategories();
+    List<Category> getCategories();
 
 }

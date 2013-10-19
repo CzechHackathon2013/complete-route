@@ -17,6 +17,7 @@
 package com.czechhackathon.completeroute.dao.mock;
 
 import com.czechhackathon.completeroute.dao.CategoryDAO;
+import com.czechhackathon.completeroute.pojo.Category;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -30,10 +31,34 @@ public class MockCategoryDAO implements CategoryDAO {
      * @return all categories
      */
     @Override
-    public List<String> getCategories() {
-        List<String> result = new LinkedList<>();
-        result.add("Banking");
-        result.add("Telecommunication");
+    public List<Category> getCategories() {
+        List<Category> result = new LinkedList<>();
+
+        Category category = new Category();
+        category.setName("Banking");
+        category.setId("banking");
+        result.add(category);
+
+        category = new Category();
+        category.setName("Telecommunications");
+        category.setId("telecommunications");
+        result.add(category);
+
+        category = new Category();
+        category.setName("Services");
+        category.setId("services");
+        result.add(category);
+
+        category = new Category();
+        category.setName("Insurance");
+        category.setId("insurance");
+        result.add(category);
+
+        category = new Category();
+        category.setName("Government");
+        category.setId("government");
+        result.add(category);
+
         return result;
     }
 }

@@ -14,30 +14,32 @@
  *    limitations under the License.
  */
 
-package com.czechhackathon.completeroute.ui;
-
-import android.app.Application;
-import android.util.Log;
+package com.czechhackathon.completeroute.pojo;
 
 /**
- * Main runner of application
- *
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class CompleteRouteApplication extends Application {
+public class Category {
 
-    public static final String APP_NAME = CompleteRouteApplication.class.getSimpleName();
+    private String id;
+    private String name;
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.d(APP_NAME, "APPLICATION onCreate");
+    public Category() {
     }
 
-    @Override
-    public void onTerminate() {
-        Log.d(APP_NAME, "APPLICATION onTerminate");
-        super.onTerminate();
+    public String getId() {
+        return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
