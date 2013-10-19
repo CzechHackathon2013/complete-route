@@ -34,7 +34,7 @@ public class MockCompanyDAO implements CompanyDAO {
 
     static {
         company = new Company();
-        company.setCategory("Telecommunication");
+        company.setCategory("Telco");
         company.setDescription("Description");
         company.setId("O2");
         company.setName("O2");
@@ -80,6 +80,10 @@ public class MockCompanyDAO implements CompanyDAO {
      */
     @Override
     public List<Company> getCompaniesByCategory(String category) {
-        return new ArrayList<>(Arrays.asList(company));
+        List<Company> result = new ArrayList<>();
+        if (category.equalsIgnoreCase("Telco")) {
+            result = new ArrayList<>(Arrays.asList(company));
+        }
+        return result;
     }
 }

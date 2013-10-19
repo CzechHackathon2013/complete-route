@@ -36,7 +36,6 @@ import java.util.Map;
  */
 public class CategoryImageAdapter extends BaseAdapter {
 
-    public final static String ID = "id";
     // references to our images
     private static Map<String, Integer> mThumbs = new HashMap<>();
     private List<Category> categoryList;
@@ -94,9 +93,9 @@ public class CategoryImageAdapter extends BaseAdapter {
             view = convertView;
         }
 
-        iconText = (TextView) view.findViewById(R.id.icon_text);
+        iconText = (TextView) view.findViewById(R.id.category_icon_text);
         iconText.setText(categoryList.get(position).getName());
-        iconImage = (ImageView) view.findViewById(R.id.icon_image);
+        iconImage = (ImageView) view.findViewById(R.id.category_icon_image);
         iconImage.setImageResource(mThumbIds[position]);
         return view;
     }

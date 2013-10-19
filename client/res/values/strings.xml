@@ -7,5 +7,6 @@
     <string name="main_company">Companies</string>
     <string name="company_item_name">Company name</string>
     <string name="company_item_desc">Description</string><string name="company_item_category">Category</string>
+    <string name="category_selected">Selected category</string>
 
 </resources>

@@ -21,6 +21,8 @@ package com.hackathon.completeroute.pojo;
  */
 public class Category {
 
+    public final static String NAME = "id";
+
     private String id;
     private String name;
 

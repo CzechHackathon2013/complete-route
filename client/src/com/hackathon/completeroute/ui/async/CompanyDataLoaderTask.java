@@ -24,6 +24,7 @@ import android.widget.ListView;
 import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.factory.DAOFactory;
+import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
 import com.hackathon.completeroute.ui.adapter.CompanyListAdapter;
 
@@ -71,7 +72,9 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, List<Company>
         // Create a DAO
         CompanyDAO companyDAO = dao.getCompanyDAO();
 
-        return companyDAO.getCompanies();
+        String category = params[0].getString(Category.NAME);
+
+        return companyDAO.getCompaniesByCategory(category);
     }
 
     /**

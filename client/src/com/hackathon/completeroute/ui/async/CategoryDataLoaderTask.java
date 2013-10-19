@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.dao.CategoryDAO;
@@ -98,13 +99,13 @@ public class CategoryDataLoaderTask extends AsyncTask<Bundle, Void, List<Categor
 
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
-                parent.getAdapter().getItem(position);
+                TextView category = (TextView) v.findViewById(R.id.category_icon_text);
 
                 Intent intent = new Intent(c, CompanyListActivity.class);
-                intent.putExtra(CategoryImageAdapter.ID, position);
+                intent.putExtra(Category.NAME, category.getText());
                 activity.startActivity(intent);
 
-                Toast.makeText(c, "Create new item to get to new screen with companies: " + position,
+                Toast.makeText(c, c.getString(R.string.category_selected) + ": " + category.getText(),
                         Toast.LENGTH_SHORT).show();
             }
         });

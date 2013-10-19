@@ -20,9 +20,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import com.hackathon.completeroute.R;
+import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.ui.CompleteRouteApplication;
-import com.hackathon.completeroute.ui.async.CompanyDataLoaderTask;
 import com.hackathon.completeroute.ui.activity.bar.ApplicationTitleBarActivity;
+import com.hackathon.completeroute.ui.adapter.CategoryImageAdapter;
+import com.hackathon.completeroute.ui.async.CompanyDataLoaderTask;
 
 /**
  * Main activity of application - root screen
@@ -61,10 +63,13 @@ public class CompanyListActivity extends ApplicationTitleBarActivity {
         // get intent data
         Intent i = getIntent();
 
-        // Selected image id
+        // Selected category
+        String category = i.getStringExtra(Category.NAME);
+        Bundle bundle = new Bundle();
+        bundle.putString(Category.NAME, category);
 
         CompanyDataLoaderTask companyDataLoader = new CompanyDataLoaderTask(this);
-        companyDataLoader.execute(savedInstanceState);
+        companyDataLoader.execute(bundle);
 
     }
 

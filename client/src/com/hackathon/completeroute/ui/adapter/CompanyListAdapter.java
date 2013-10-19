@@ -33,9 +33,6 @@ import java.util.ArrayList;
 public class CompanyListAdapter extends ArrayAdapter<Company> {
 
     private ArrayList<Company> companies;
-    private TextView tvCompanyName;
-    private TextView tvDescription;
-    private TextView tvCategory;
 
     /**
      * Default constructor
@@ -62,9 +59,9 @@ public class CompanyListAdapter extends ArrayAdapter<Company> {
 
         Company company = this.companies.get(position);
 
-        tvCompanyName = (TextView) v.findViewById(R.id.tvCompanyName);
-        tvDescription = (TextView) v.findViewById(R.id.tvDescription);
-        tvCategory = (TextView) v.findViewById(R.id.tvCategory);
+        TextView tvCompanyName = (TextView) v.findViewById(R.id.tvCompanyName);
+        TextView tvDescription = (TextView) v.findViewById(R.id.tvDescription);
+        TextView tvCategory = (TextView) v.findViewById(R.id.tvCategory);
 
         v.setClickable(true);
         v.setFocusable(true);
