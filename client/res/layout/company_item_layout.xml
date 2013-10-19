@@ -8,14 +8,14 @@
 
     <ImageView android:id="@+id/company_item_ivIcon" android:layout_width="wrap_content"
                android:layout_height="wrap_content" android:layout_gravity="center_vertical"
-               android:layout_marginLeft="5dip" android:src="@drawable/icon_company"/>
+               android:layout_marginLeft="5dip" android:src="@drawable/icon_company" android:contentDescription="@string/company_item_desc"/>
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:id="@+id/company_item_infoLayout" android:layout_marginTop="5dip"
                   android:background="#F2F2FF">
         <LinearLayout android:layout_width="match_parent" android:orientation="vertical"
                       android:layout_gravity="center_vertical|center_horizontal" android:layout_height="wrap_content"
-                      android:id="@+id/company_item_layout" android:background="#F2F2FF">
+                      android:id="@+id/company_list_item_layout" android:background="#F2F2FF">
             <TextView android:layout_height="wrap_content" android:id="@+id/tvCompanyName" android:textSize="14dip"
                       android:textStyle="bold" android:text="@string/company_item_name"
                       android:layout_marginLeft="10dip" android:layout_width="wrap_content"

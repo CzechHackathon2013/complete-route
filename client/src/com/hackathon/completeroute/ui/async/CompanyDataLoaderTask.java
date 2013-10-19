@@ -96,7 +96,7 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, List<Company>
 
         lv = (ListView) activity.findViewById(R.id.lvCompany);
         lv.setAdapter(new CompanyListAdapter(c,
-                R.id.lvDeparture, result));
+                R.id.lvCompany, result));
 
     }
 }

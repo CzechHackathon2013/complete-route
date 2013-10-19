@@ -17,24 +17,15 @@
 package com.hackathon.completeroute.dao.factory;
 
 import android.util.Log;
-<<<<<<< HEAD:client/src/com/czechhackathon/completeroute/dao/factory/JsonDAOFactory.java
-import com.czechhackathon.completeroute.dao.CategoryDAO;
-import com.czechhackathon.completeroute.dao.CompanyDAO;
-import com.czechhackathon.completeroute.dao.RouteDAO;
-import com.czechhackathon.completeroute.dao.json.JsonCategoryDAO;
-import com.czechhackathon.completeroute.dao.json.JsonCompanyDAO;
-import com.czechhackathon.completeroute.dao.json.JsonDAOConfiguration;
-import com.czechhackathon.completeroute.dao.json.JsonRouteDAO;
-=======
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.hackathon.completeroute.dao.CategoryDAO;
 import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.RouteDAO;
 import com.hackathon.completeroute.dao.json.JsonCategoryDAO;
 import com.hackathon.completeroute.dao.json.JsonCompanyDAO;
+import com.hackathon.completeroute.dao.json.JsonDAOConfiguration;
 import com.hackathon.completeroute.dao.json.JsonRouteDAO;
->>>>>>> f71c560808f601d3981d717b2d259e224ac4316c:client/src/com/hackathon/completeroute/dao/factory/JsonDAOFactory.java
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
@@ -131,7 +122,7 @@ public class JsonDAOFactory extends DAOFactory {
     private static String getResponse(HttpResponse resp) throws Exception {
         ResponseHandler<String> handler = new BasicResponseHandler();
         return handler.handleResponse(resp);
-   }
+    }
 
     @Override
     public CategoryDAO getCategoryDAO() {
