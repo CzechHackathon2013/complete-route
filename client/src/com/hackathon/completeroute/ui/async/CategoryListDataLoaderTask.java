@@ -70,7 +70,7 @@ public class CategoryListDataLoaderTask extends AsyncTask<Bundle, Void, List<Cat
     @Override
     protected List<Category> doInBackground(Bundle... params) {
         // Create the required DAO Factory
-        DAOFactory daoFactory = DAOFactory.getDAOFactory(DAOFactory.JSON);
+        DAOFactory daoFactory = DAOFactory.getDAOFactory(DAOFactory.MOCK);
 
         // Create a DAO
         CategoryDAO categoryDAO = daoFactory.getCategoryDAO();
