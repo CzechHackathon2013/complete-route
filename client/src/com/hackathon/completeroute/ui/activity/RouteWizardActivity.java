@@ -16,18 +16,16 @@
 
 package com.hackathon.completeroute.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import com.hackathon.completeroute.R;
-import com.hackathon.completeroute.pojo.Company;
+import com.hackathon.completeroute.pojo.Route;
 import com.hackathon.completeroute.ui.CompleteRouteApplication;
 import com.hackathon.completeroute.ui.activity.bar.ApplicationTitleBarActivity;
-import com.hackathon.completeroute.ui.async.CompanyDataLoaderTask;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class CompanyDetailActivity extends ApplicationTitleBarActivity {
+public class RouteWizardActivity extends ApplicationTitleBarActivity {
 
     private CompleteRouteApplication app;
 
@@ -54,18 +52,13 @@ public class CompanyDetailActivity extends ApplicationTitleBarActivity {
      */
     private void initUi(Bundle savedInstanceState) {
 
-        setContentView(R.layout.company_detail_layout);
+        setContentView(R.layout.route_wizard_layout);
 
-        // get intent data
-        Intent i = getIntent();
+        // Selected route
+        Route route = (Route) getIntent().getSerializableExtra(Route.class.getSimpleName());
 
-        // Selected company
-        String company = i.getStringExtra(Company.NAME);
-        Bundle bundle = new Bundle();
-        bundle.putString(Company.NAME, company);
+        //TODO thanus
 
-        CompanyDataLoaderTask companyDetailLoader = new CompanyDataLoaderTask(this);
-        companyDetailLoader.execute(bundle);
 
     }
 }
