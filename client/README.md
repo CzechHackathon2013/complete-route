@@ -3,8 +3,8 @@ CompleteRoute
 
 Authors:
  
- - TomáÎåÎéÎá Hanus
- - Michal DojÎáÎñÎ÷ar
+ - TomÃ¡Å¡ Hanus
+ - Michal DojÄar
  - Viliam Elischer
 
  Thanks to:
