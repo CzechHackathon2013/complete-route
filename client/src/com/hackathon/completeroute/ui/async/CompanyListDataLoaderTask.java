@@ -18,16 +18,28 @@ package com.hackathon.completeroute.ui.async;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.factory.DAOFactory;
+import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
+import com.hackathon.completeroute.ui.activity.CompanyDetailActivity;
+import com.hackathon.completeroute.ui.adapter.CompanyImageAdapter;
+
+import java.util.List;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
+public class CompanyListDataLoaderTask extends AsyncTask<Bundle, Void, List<Company>> {
 
     private Context c;
     private Activity activity;
@@ -37,7 +49,7 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
      *
      * @param activity the parent activity
      */
-    public CompanyDataLoaderTask(Activity activity) {
+    public CompanyListDataLoaderTask(Activity activity) {
         this.activity = activity;
         this.c = activity.getApplicationContext();
     }
@@ -57,7 +69,7 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
      * @see #publishProgress
      */
     @Override
-    protected Company doInBackground(Bundle... params) {
+    protected List<Company> doInBackground(Bundle... params) {
 
         // Create the required DAO Factory
         DAOFactory dao = DAOFactory.getDefaultDAOFactory();
@@ -65,9 +77,9 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
         // Create a DAO
         CompanyDAO companyDAO = dao.getCompanyDAO();
 
-        String companyName = params[0].getString(Company.NAME);
+        String category = params[0].getString(Category.NAME);
 
-        return companyDAO.getCompanyByName(companyName);
+        return companyDAO.getCompaniesByCategory(category);
 
     }
 
@@ -82,17 +94,26 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
      * @see #onCancelled(Object)
      */
     @Override
-    protected void onPostExecute(Company company) {
+    protected void onPostExecute(List<Company> companies) {
 
-/*        ArrayList<Company> result = new ArrayList<>(companies);
+        GridView gridview = (GridView) activity.findViewById(R.id.company_grid);
 
-        ListView lv;
+        gridview.setAdapter(new CompanyImageAdapter(activity, companies));
 
-        lv = (ListView) activity.findViewById(R.id.lvCompany);
-        lv.setAdapter(new CompanyListAdapter(c,
-                R.id.lvCompany, result));*/
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        //TODO thanus
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+
+                TextView company = (TextView) v.findViewById(R.id.company_icon_text);
+
+                Intent intent = new Intent(c, CompanyDetailActivity.class);
+                intent.putExtra(Company.NAME, company.getText());
+                activity.startActivity(intent);
+
+                Toast.makeText(c, c.getString(R.string.company_selected) + ": " + company.getText(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }

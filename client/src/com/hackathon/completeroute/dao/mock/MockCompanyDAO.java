@@ -37,6 +37,7 @@ public class MockCompanyDAO implements CompanyDAO {
         company.setDescription("Description");
         company.setName("O2");
         company.setPhone("906112567");
+        company.setCategory("telco");
     }
 
     /**

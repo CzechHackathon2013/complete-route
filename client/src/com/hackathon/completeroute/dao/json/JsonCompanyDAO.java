@@ -16,10 +16,10 @@
 
 package com.hackathon.completeroute.dao.json;
 
+import com.google.gson.reflect.TypeToken;
 import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.factory.JsonDAOFactory;
 import com.hackathon.completeroute.pojo.Company;
-import com.google.gson.reflect.TypeToken;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;

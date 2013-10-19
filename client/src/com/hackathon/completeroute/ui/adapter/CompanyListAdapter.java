@@ -54,7 +54,7 @@ public class CompanyListAdapter extends ArrayAdapter<Company> {
         if (v == null) {
             LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            v = vi.inflate(R.layout.company_item_layout, null);
+            v = vi.inflate(R.layout.company_detail_layout, null);
         }
 
         Company company = this.companies.get(position);
@@ -68,7 +68,7 @@ public class CompanyListAdapter extends ArrayAdapter<Company> {
 
         tvCompanyName.setText(company.getName());
         tvDescription.setText(company.getDescription());
-        tvCategory.setText(company.getName());
+        tvCategory.setText(company.getCategory());
 
         return v;
 

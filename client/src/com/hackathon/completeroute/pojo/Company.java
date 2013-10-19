@@ -21,9 +21,13 @@ package com.hackathon.completeroute.pojo;
  */
 public class Company {
 
+    public final static String NAME = "id";
+
+    
     private String name;
     private String description;
     private String phone;
+    private String category;
 
     public Company() {
     }
@@ -56,5 +60,13 @@ public class Company {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

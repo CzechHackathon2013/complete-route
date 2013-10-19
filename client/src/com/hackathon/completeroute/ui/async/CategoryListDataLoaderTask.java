@@ -30,7 +30,7 @@ import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.dao.CategoryDAO;
 import com.hackathon.completeroute.dao.factory.DAOFactory;
 import com.hackathon.completeroute.pojo.Category;
-import com.hackathon.completeroute.ui.activity.CompanyListActivity;
+import com.hackathon.completeroute.ui.activity.CompanyGridActivity;
 import com.hackathon.completeroute.ui.adapter.CategoryImageAdapter;
 
 import java.util.List;
@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class CategoryDataLoaderTask extends AsyncTask<Bundle, Void, List<Category>> {
+public class CategoryListDataLoaderTask extends AsyncTask<Bundle, Void, List<Category>> {
 
     private Context c;
     private Activity activity;
@@ -48,7 +48,7 @@ public class CategoryDataLoaderTask extends AsyncTask<Bundle, Void, List<Categor
      *
      * @param activity the parent activity
      */
-    public CategoryDataLoaderTask(Activity activity) {
+    public CategoryListDataLoaderTask(Activity activity) {
         this.activity = activity;
         this.c = activity.getApplicationContext();
     }
@@ -93,7 +93,7 @@ public class CategoryDataLoaderTask extends AsyncTask<Bundle, Void, List<Categor
 
         GridView gridview = (GridView) activity.findViewById(R.id.category_grid);
 
-        gridview.setAdapter(new CategoryImageAdapter(activity, c, categories));
+        gridview.setAdapter(new CategoryImageAdapter(activity, categories));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -101,7 +101,7 @@ public class CategoryDataLoaderTask extends AsyncTask<Bundle, Void, List<Categor
 
                 TextView category = (TextView) v.findViewById(R.id.category_icon_text);
 
-                Intent intent = new Intent(c, CompanyListActivity.class);
+                Intent intent = new Intent(c, CompanyGridActivity.class);
                 intent.putExtra(Category.NAME, category.getText());
                 activity.startActivity(intent);
 
