@@ -93,7 +93,7 @@ public class CategoryListDataLoaderTask extends AsyncTask<Bundle, Void, List<Cat
 
         GridView gridview = (GridView) activity.findViewById(R.id.category_grid);
 
-        gridview.setAdapter(new CategoryImageAdapter(activity, c, categories));
+        gridview.setAdapter(new CategoryImageAdapter(activity, categories));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

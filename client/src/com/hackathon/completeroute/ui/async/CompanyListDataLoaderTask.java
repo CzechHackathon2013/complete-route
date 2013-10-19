@@ -98,7 +98,7 @@ public class CompanyListDataLoaderTask extends AsyncTask<Bundle, Void, List<Comp
 
         GridView gridview = (GridView) activity.findViewById(R.id.company_grid);
 
-        gridview.setAdapter(new CompanyImageAdapter(activity, c, companies));
+        gridview.setAdapter(new CompanyImageAdapter(activity, companies));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
