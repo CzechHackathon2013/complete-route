@@ -19,7 +19,7 @@ public class RouteDAO {
 
     public String getCategories() {
         DBObject query = new BasicDBObject();
-        DBObject projection = new BasicDBObject("_id", true).append("icon", true);
+        DBObject projection = new BasicDBObject("_id", true).append("name", true);
         return executeFind(query, projection);
     }
 
@@ -30,7 +30,7 @@ public class RouteDAO {
         return executeFind(query, projection);
     }
 
-    public String getRoutes(String category, String company, String... routesSelected) {
+    public String getRoutes(String category, String company, String... ancestorRoutesSelected) {
         DBObject query = new BasicDBObject("_id", category).append("companies.name", company);
         DBCursor cursor = routeCollection.find(query);
         try {

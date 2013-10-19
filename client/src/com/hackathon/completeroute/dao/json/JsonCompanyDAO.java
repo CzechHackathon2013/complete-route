@@ -19,6 +19,9 @@ package com.hackathon.completeroute.dao.json;
 import com.google.gson.reflect.TypeToken;
 import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.factory.JsonDAOFactory;
+import com.hackathon.completeroute.dao.json.response.CategoriesResponse;
+import com.hackathon.completeroute.dao.json.response.CompaniesResponse;
+import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
 import org.json.JSONObject;
 
@@ -57,13 +60,7 @@ public class JsonCompanyDAO implements CompanyDAO {
      */
     @Override
     public List<Company> getCompanies() {
-
-        Type listType = new TypeToken<ArrayList<Company>>() {
-        }.getType();
-
-        JSONObject json = JsonDAOFactory.get(CONTEXT);
-        return JsonDAOFactory.fromJson(json, listType);
-
+        throw new UnsupportedOperationException("Not implemented yet.");
     }
 
     /**
@@ -72,7 +69,9 @@ public class JsonCompanyDAO implements CompanyDAO {
      */
     @Override
     public List<Company> getCompaniesByCategory(String category) {
-        throw new UnsupportedOperationException("Not implemented yet.");
+        JSONObject json = JsonDAOFactory.get(CONTEXT+"/"+category);
+        CompaniesResponse response = JsonDAOFactory.fromJson(json, CompaniesResponse.class);
+        return response.getResult();
     }
 
 }

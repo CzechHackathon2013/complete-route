@@ -16,6 +16,7 @@
 
 package com.hackathon.completeroute.ui.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,16 +24,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import com.hackathon.completeroute.R;
-import com.hackathon.completeroute.pojo.Company;
+import com.hackathon.completeroute.pojo.Route;
 
-import java.util.ArrayList;
+import java.util.AbstractList;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class CompanyListAdapter extends ArrayAdapter<Company> {
+public class RouteListAdapter extends ArrayAdapter<Route> {
 
-    private ArrayList<Company> companies;
+    private AbstractList<Route> routes;
+    private Activity mActivity;
 
     /**
      * Default constructor
@@ -41,10 +43,11 @@ public class CompanyListAdapter extends ArrayAdapter<Company> {
      * @param textViewResourceId the if of view
      * @param objects            the objects
      */
-    public CompanyListAdapter(Context context, int textViewResourceId,
-                              ArrayList<Company> objects) {
+    public RouteListAdapter(Activity a, Context context, int textViewResourceId,
+                            AbstractList<Route> objects) {
         super(context, textViewResourceId, objects);
-        this.companies = objects;
+        this.routes = objects;
+        mActivity = a;
     }
 
     @Override
@@ -52,23 +55,18 @@ public class CompanyListAdapter extends ArrayAdapter<Company> {
 
         View v = convertView;
         if (v == null) {
-            LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            v = vi.inflate(R.layout.company_detail_layout, null);
+            LayoutInflater vi = mActivity.getLayoutInflater();
+            v = vi.inflate(R.layout.route_item_layout, null);
         }
 
-        Company company = this.companies.get(position);
+        Route route = this.routes.get(position);
 
-        TextView tvCompanyName = (TextView) v.findViewById(R.id.tvCompanyName);
-        TextView tvDescription = (TextView) v.findViewById(R.id.tvDescription);
-        TextView tvCategory = (TextView) v.findViewById(R.id.tvCategory);
+        TextView tvDescription = (TextView) v.findViewById(R.id.tvRoute);
 
         v.setClickable(true);
         v.setFocusable(true);
 
-        tvCompanyName.setText(company.getName());
-        tvDescription.setText(company.getDescription());
-        tvCategory.setText(company.getCategory());
+        tvDescription.setText(route.getDescription());
 
         return v;
 
