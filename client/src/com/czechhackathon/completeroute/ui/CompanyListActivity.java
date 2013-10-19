@@ -16,9 +16,11 @@
 
 package com.czechhackathon.completeroute.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import com.czechhackathon.completeroute.R;
+import com.czechhackathon.completeroute.ui.adapter.CategoryImageAdapter;
 import com.czechhackathon.completeroute.ui.async.CompanyDataLoaderTask;
 import com.czechhackathon.completeroute.ui.bar.ApplicationTitleBarActivity;
 
@@ -55,6 +57,11 @@ public class CompanyListActivity extends ApplicationTitleBarActivity {
     private void initUi(Bundle savedInstanceState) {
 
         setContentView(R.layout.company_list);
+
+        // get intent data
+        Intent i = getIntent();
+
+        // Selected image id
 
         CompanyDataLoaderTask companyDataLoader = new CompanyDataLoaderTask(this);
         companyDataLoader.execute(savedInstanceState);

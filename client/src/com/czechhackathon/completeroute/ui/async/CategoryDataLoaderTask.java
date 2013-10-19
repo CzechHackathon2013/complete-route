@@ -18,6 +18,7 @@ package com.czechhackathon.completeroute.ui.async;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -28,9 +29,9 @@ import com.czechhackathon.completeroute.R;
 import com.czechhackathon.completeroute.dao.CategoryDAO;
 import com.czechhackathon.completeroute.dao.factory.DAOFactory;
 import com.czechhackathon.completeroute.pojo.Category;
+import com.czechhackathon.completeroute.ui.CompanyListActivity;
 import com.czechhackathon.completeroute.ui.adapter.CategoryImageAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -96,6 +97,13 @@ public class CategoryDataLoaderTask extends AsyncTask<Bundle, Void, List<Categor
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+
+                parent.getAdapter().getItem(position);
+
+                Intent intent = new Intent(c, CompanyListActivity.class);
+                intent.putExtra(CategoryImageAdapter.ID, position);
+                activity.startActivity(intent);
+
                 Toast.makeText(c, "Create new item to get to new screen with companies: " + position,
                         Toast.LENGTH_SHORT).show();
             }

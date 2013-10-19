@@ -23,9 +23,6 @@
         <activity android:label="@string/app_name" android:name=".ui.CompanyListActivity"
                   android:icon="@drawable/ic_launcher_cr" android:launchMode="singleInstance"
                   android:screenOrientation="unspecified">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-            </intent-filter>
         </activity>
     </application>
 </manifest>

@@ -34,6 +34,8 @@ import java.util.Map;
  */
 public class CategoryImageAdapter extends BaseAdapter {
 
+    public final static String ID = "id";
+
     // references to our images
     private static Map<String, Integer> mThumbs = new HashMap<>();
 
