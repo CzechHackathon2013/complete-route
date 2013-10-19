@@ -6,6 +6,7 @@ Authors:
  - Tomáš Hanus
  - Michal Dojčar
  - Viliam Elischer
+ 
 
  Thanks to:
 
