@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:orientation="horizontal" android:layout_height="fill_parent" android:id="@+id/route_item_layout"
-        android:background="#ffadadad"
+        android:background="#ffffffff"
         android:focusable="true" android:baselineAligned="false">
 
     <TableRow
