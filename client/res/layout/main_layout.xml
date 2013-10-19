@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical" android:layout_width="fill_parent"
               android:layout_height="fill_parent" android:id="@+id/company_main_layout"
-              android:weightSum="1" android:background="#F2F2FF">
+              android:weightSum="1" android:background="#ffffffff">
 
-    <ListView android:layout_width="match_parent" android:dividerHeight="1dip" android:divider="#E0E0E0"
+    <ListView android:layout_width="match_parent" android:dividerHeight="1dip" android:divider="#ff3a3a3a"
               android:layout_height="wrap_content" android:id="@+id/lvCompany"
               android:background="#000000" />
 
