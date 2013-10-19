@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.czechhackathon.completeroute"
+          package="com.hackathon.completeroute"
           android:versionCode="1"
           android:versionName="1.0">
     <uses-sdk android:minSdkVersion="16"/>
@@ -11,7 +11,7 @@
                  android:debuggable="true"
                  android:killAfterRestore="true" android:persistent="false"
                  android:description="@string/app_description">
-        <activity android:label="@string/app_name" android:name=".ui.CategoryGridActivity"
+        <activity android:label="@string/app_name" android:name=".ui.activity.CategoryGridActivity"
                   android:icon="@drawable/ic_launcher_cr" android:launchMode="singleInstance"
                   android:screenOrientation="unspecified">
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:label="@string/app_name" android:name=".ui.CompanyListActivity"
+        <activity android:label="@string/app_name" android:name=".ui.activity.CompanyListActivity"
                   android:icon="@drawable/ic_launcher_cr" android:launchMode="singleInstance"
                   android:screenOrientation="unspecified">
         </activity>
