@@ -4,7 +4,8 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:gravity="center_vertical"
-        android:paddingLeft="5dip" android:baselineAligned="false" android:background="@drawable/main_header_background" android:id="@+id/window_header_layout" android:layout_height="50dip">
+        android:paddingLeft="5dip" android:baselineAligned="false" android:background="@drawable/main_header_background"
+        android:id="@+id/window_header_layout" android:layout_height="50dip">
 
     <TextView
             android:layout_width="wrap_content"

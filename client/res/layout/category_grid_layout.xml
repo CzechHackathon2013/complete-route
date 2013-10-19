@@ -7,10 +7,9 @@
         android:layout_height="fill_parent"
         android:columnWidth="95dp"
         android:numColumns="auto_fit"
-        android:verticalSpacing="5dp"
+        android:verticalSpacing="0dp"
         android:horizontalSpacing="5dp"
         android:stretchMode="columnWidth"
-        android:gravity="center"
-        android:background="#F2F2FF">
+        android:background="#FFFFFF" android:gravity="center">
 </GridView>
 
