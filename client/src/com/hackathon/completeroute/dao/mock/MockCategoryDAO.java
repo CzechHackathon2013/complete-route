@@ -37,26 +37,31 @@ public class MockCategoryDAO implements CategoryDAO {
         Category category = new Category();
         category.setName("Banking");
         category.setId("banking");
+        category.setIcon("cat_banking.png");
         result.add(category);
 
         category = new Category();
         category.setName("Telco");
         category.setId("telco");
+        category.setIcon("cat_teleco.png");
         result.add(category);
 
         category = new Category();
         category.setName("Services");
         category.setId("services");
+        category.setIcon("cat_services.png");
         result.add(category);
 
         category = new Category();
         category.setName("Insurance");
         category.setId("insurance");
+        category.setIcon("cat_insurance.png");
         result.add(category);
 
         category = new Category();
         category.setName("Government");
         category.setId("government");
+        category.setIcon("cat_government.png");
         result.add(category);
 
         return result;

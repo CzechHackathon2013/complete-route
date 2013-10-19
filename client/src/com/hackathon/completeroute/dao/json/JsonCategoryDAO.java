@@ -16,16 +16,11 @@
 
 package com.hackathon.completeroute.dao.json;
 
-<<<<<<< HEAD:client/src/com/czechhackathon/completeroute/dao/json/JsonCategoryDAO.java
-import com.czechhackathon.completeroute.dao.CategoryDAO;
-import com.czechhackathon.completeroute.dao.factory.JsonDAOFactory;
-import com.czechhackathon.completeroute.dao.json.response.CategoriesResponse;
-import com.czechhackathon.completeroute.pojo.Category;
-import org.json.JSONObject;
-=======
 import com.hackathon.completeroute.dao.CategoryDAO;
+import com.hackathon.completeroute.dao.factory.JsonDAOFactory;
+import com.hackathon.completeroute.dao.json.response.CategoriesResponse;
 import com.hackathon.completeroute.pojo.Category;
->>>>>>> f71c560808f601d3981d717b2d259e224ac4316c:client/src/com/hackathon/completeroute/dao/json/JsonCategoryDAO.java
+import org.json.JSONObject;
 
 import java.util.List;
 
