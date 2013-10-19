@@ -51,7 +51,7 @@ public class JsonDAOFactory extends DAOFactory {
     private GsonBuilder gsonBuilder = null;
 
     /**
-     * Default constructor for JSON DAO Factory that holds HttpClient as main source
+     * Default constructor for JSON DAO Factory that holds HttpClient as main_layout source
      */
     public JsonDAOFactory() {
 

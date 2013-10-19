@@ -33,10 +33,10 @@ public class ApplicationTitleBarActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        setContentView(R.layout.main);
+        setContentView(R.layout.main_layout);
 
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
-                R.layout.window_title);
+                R.layout.window_title_layout);
 
     }
 

@@ -51,7 +51,7 @@ public class CategoryGridActivity extends ApplicationTitleBarActivity {
      */
     private void initUi(Bundle savedInstanceState) {
 
-        setContentView(R.layout.category_grid);
+        setContentView(R.layout.category_grid_layout);
 
         CategoryDataLoaderTask categoryDataLoader = new CategoryDataLoaderTask(this);
         categoryDataLoader.execute(savedInstanceState);

@@ -16,12 +16,14 @@
 
 package com.czechhackathon.completeroute.ui.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import com.czechhackathon.completeroute.R;
 import com.czechhackathon.completeroute.pojo.Category;
 
@@ -35,25 +37,29 @@ import java.util.Map;
 public class CategoryImageAdapter extends BaseAdapter {
 
     public final static String ID = "id";
-
     // references to our images
     private static Map<String, Integer> mThumbs = new HashMap<>();
+    private List<Category> categoryList;
 
     static {
+        //TODO better solution for mapping resources to categories
         mThumbs.put("banking", R.drawable.cat_banking);
-        mThumbs.put("telecommunications", R.drawable.cat_telecommunications);
+        mThumbs.put("telco", R.drawable.cat_teleco);
         mThumbs.put("services", R.drawable.cat_services);
         mThumbs.put("insurance", R.drawable.cat_insurance);
         mThumbs.put("government", R.drawable.cat_government);
     }
 
+    private Activity mActivity;
     private Context mContext;
     // references to our images
     private Integer[] mThumbIds;
 
-    public CategoryImageAdapter(Context c, List<Category> categoryList) {
+    public CategoryImageAdapter(Activity a, Context c, List<Category> categoryList) {
+        mActivity = a;
         mContext = c;
 
+        this.categoryList = categoryList;
         mThumbIds = new Integer[categoryList.size()];
         for (int i = 0; i < categoryList.size(); i++) {
             mThumbIds[i] = mThumbs.get(categoryList.get(i).getId());
@@ -74,17 +80,24 @@ public class CategoryImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
-        if (convertView == null) {  // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
+
+        View view;
+        TextView iconText = null;
+        ImageView iconImage;
+
+
+        if (convertView == null) {
+            LayoutInflater li = mActivity.getLayoutInflater();
+
+            view = li.inflate(R.layout.category_item_layout, null);
         } else {
-            imageView = (ImageView) convertView;
+            view = convertView;
         }
 
-        imageView.setImageResource(mThumbIds[position]);
-        return imageView;
+        iconText = (TextView) view.findViewById(R.id.icon_text);
+        iconText.setText(categoryList.get(position).getName());
+        iconImage = (ImageView) view.findViewById(R.id.icon_image);
+        iconImage.setImageResource(mThumbIds[position]);
+        return view;
     }
 }

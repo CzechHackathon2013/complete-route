@@ -40,8 +40,8 @@ public class MockCategoryDAO implements CategoryDAO {
         result.add(category);
 
         category = new Category();
-        category.setName("Telecommunications");
-        category.setId("telecommunications");
+        category.setName("Telco");
+        category.setId("telco");
         result.add(category);
 
         category = new Category();
