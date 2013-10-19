@@ -20,15 +20,25 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.dao.CompanyDAO;
+import com.hackathon.completeroute.dao.RouteDAO;
 import com.hackathon.completeroute.dao.factory.DAOFactory;
 import com.hackathon.completeroute.pojo.Company;
+import com.hackathon.completeroute.pojo.Route;
+import com.hackathon.completeroute.ui.adapter.RouteListAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
 public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
 
+    private List<Route> routeList;
     private Context c;
     private Activity activity;
 
@@ -64,10 +74,14 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
 
         // Create a DAO
         CompanyDAO companyDAO = dao.getCompanyDAO();
+        RouteDAO routeDAO = dao.getRouteDAO();
 
         String companyName = params[0].getString(Company.NAME);
 
-        return companyDAO.getCompanyByName(companyName);
+        Company company = companyDAO.getCompanyByName(companyName);
+        routeList = routeDAO.getRoutesByCompany(company.getCategory(), company.getName());
+
+        return company;
 
     }
 
@@ -84,15 +98,21 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
     @Override
     protected void onPostExecute(Company company) {
 
-/*        ArrayList<Company> result = new ArrayList<>(companies);
+        ArrayList<Route> result = new ArrayList<>(routeList);
+
+        TextView tvCompanyName = (TextView) activity.findViewById(R.id.tvCompanyName);
+        TextView tvDescription = (TextView) activity.findViewById(R.id.tvDescription);
+        TextView tvCategory = (TextView) activity.findViewById(R.id.tvCategory);
+
+        tvCompanyName.setText(company.getName());
+        tvDescription.setText(company.getDescription());
+        tvCategory.setText(company.getCategory());
 
         ListView lv;
 
-        lv = (ListView) activity.findViewById(R.id.lvCompany);
-        lv.setAdapter(new CompanyListAdapter(c,
-                R.id.lvCompany, result));*/
-
-        //TODO thanus
+        lv = (ListView) activity.findViewById(R.id.lvRoute);
+        lv.setAdapter(new RouteListAdapter(activity, c,
+                R.id.lvRoute, result));
 
     }
 }
