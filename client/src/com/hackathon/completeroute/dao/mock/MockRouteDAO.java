@@ -50,7 +50,7 @@ public class MockRouteDAO implements RouteDAO {
      * @return the list of {@link com.hackathon.completeroute.pojo.Route} for the company
      */
     @Override
-    public List<Route> getRoutesByCompany(String company) {
+    public List<Route> getRoutesByCompany(String category, String company) {
         return new ArrayList<>(Arrays.asList(route));
     }
 }

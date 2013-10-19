@@ -33,7 +33,7 @@ public class JsonRouteDAO implements RouteDAO {
      * @return the list of {@link com.hackathon.completeroute.pojo.Route} for the company
      */
     @Override
-    public List<Route> getRoutesByCompany(String company) {
+    public List<Route> getRoutesByCompany(String category, String company) {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 }
