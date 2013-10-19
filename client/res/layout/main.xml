@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" android:id="@+id/departure_main_layout"
-	android:weightSum="1" android:background="#F2F2FF">
+              android:orientation="vertical" android:layout_width="fill_parent"
+              android:layout_height="fill_parent" android:id="@+id/completeroute_main_layout"
+              android:weightSum="1" android:background="#ff3a79ff">
 
-    <ListView android:layout_width="match_parent" android:dividerHeight="1dip" android:divider="#E0E0E0" android:layout_height="wrap_content" android:id="@+id/lvDeparture" android:background="#000000"></ListView>
-
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/gridview"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:columnWidth="80dp"
+              android:numColumns="3"
+              android:verticalSpacing="24dp"
+              android:horizontalSpacing="16dp"
+              android:stretchMode="columnWidth"
+              android:gravity="center"
+              android:background="#000000"
+              android:drawSelectorOnTop="false" android:fastScrollAlwaysVisible="false"
+              android:textFilterEnabled="true" android:paddingTop="16dp" android:paddingLeft="16dp"/>
+    <ListView android:layout_width="wrap_content" android:dividerHeight="1dip" android:divider="#E0E0E0"
+              android:layout_height="wrap_content" android:id="@+id/lvDeparture"
+              android:background="#000000"/>
 </LinearLayout>
