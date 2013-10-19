@@ -33,7 +33,10 @@ public class MockCategoryDAO implements CategoryDAO {
     public List<String> getCategories() {
         List<String> result = new LinkedList<>();
         result.add("Banking");
-        result.add("Telecommunication");
+        result.add("Telecommunications");
+        result.add("Services");
+        result.add("Insurance");
+        result.add("Government");
         return result;
     }
 }
