@@ -14,12 +14,13 @@
  *    limitations under the License.
  */
 
-package com.hackathon.completeroute.ui;
+package com.hackathon.completeroute.ui.activity;
 
 import android.os.Bundle;
 import com.hackathon.completeroute.R;
+import com.hackathon.completeroute.ui.CompleteRouteApplication;
 import com.hackathon.completeroute.ui.async.CategoryDataLoaderTask;
-import com.hackathon.completeroute.ui.bar.ApplicationTitleBarActivity;
+import com.hackathon.completeroute.ui.activity.bar.ApplicationTitleBarActivity;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>

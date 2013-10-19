@@ -14,14 +14,15 @@
  *    limitations under the License.
  */
 
-package com.hackathon.completeroute.ui;
+package com.hackathon.completeroute.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import com.hackathon.completeroute.R;
+import com.hackathon.completeroute.ui.CompleteRouteApplication;
 import com.hackathon.completeroute.ui.async.CompanyDataLoaderTask;
-import com.hackathon.completeroute.ui.bar.ApplicationTitleBarActivity;
+import com.hackathon.completeroute.ui.activity.bar.ApplicationTitleBarActivity;
 
 /**
  * Main activity of application - root screen

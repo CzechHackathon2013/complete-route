@@ -29,7 +29,7 @@ import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.dao.CategoryDAO;
 import com.hackathon.completeroute.dao.factory.DAOFactory;
 import com.hackathon.completeroute.pojo.Category;
-import com.hackathon.completeroute.ui.CompanyListActivity;
+import com.hackathon.completeroute.ui.activity.CompanyListActivity;
 import com.hackathon.completeroute.ui.adapter.CategoryImageAdapter;
 
 import java.util.List;

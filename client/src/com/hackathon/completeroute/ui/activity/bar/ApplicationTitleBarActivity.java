@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.hackathon.completeroute.ui.bar;
+package com.hackathon.completeroute.ui.activity.bar;
 
 import android.app.Activity;
 import android.os.Bundle;
