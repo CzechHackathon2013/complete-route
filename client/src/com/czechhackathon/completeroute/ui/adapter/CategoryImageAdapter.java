@@ -46,7 +46,6 @@ public class CategoryImageAdapter extends BaseAdapter {
     }
 
     private Context mContext;
-    private List<Category> categoryList;
     // references to our images
     private Integer[] mThumbIds;
 
