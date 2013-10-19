@@ -34,20 +34,10 @@ public class MockCompanyDAO implements CompanyDAO {
 
     static {
         company = new Company();
-        company.setCategory("Telco");
         company.setDescription("Description");
-        company.setId("O2");
         company.setName("O2");
-
-        List<Route> routes = new LinkedList<>();
-        Route route = new Route();
-        route.setCompany(company);
-        route.setName("Invoice");
-        route.setDescription("Invoice");
-        route.setKeypad(153);
-        routes.add(route);
-
-        company.setRoutes(routes);
+        company.setPhone("906112567");
+        company.setCategory("telco");
     }
 
     /**

@@ -25,15 +25,13 @@ public class Category {
 
     private String id;
     private String name;
-    private String icon;
 
     public Category() {
     }
 
-    public Category(String id, String name, String icon) {
+    public Category(String id, String name) {
         this.id = id;
         this.name = name;
-        this.icon = icon;
     }
 
     public String getId() {
@@ -50,13 +48,5 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
     }
 }

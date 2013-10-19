@@ -33,10 +33,10 @@ public class MockRouteDAO implements RouteDAO {
 
     static {
         Company company = new Company();
-        company.setCategory("Telecommunication");
         company.setDescription("Description");
-        company.setId("O2");
         company.setName("O2");
+        company.setPhone("906112567");
+        company.setCategory("telco");
 
         route = new Route();
         route.setCompany(company);
@@ -50,7 +50,7 @@ public class MockRouteDAO implements RouteDAO {
      * @return the list of {@link com.hackathon.completeroute.pojo.Route} for the company
      */
     @Override
-    public List<Route> getRoutesByCompany(String company) {
+    public List<Route> getRoutesByCompany(String category, String company) {
         return new ArrayList<>(Arrays.asList(route));
     }
 }

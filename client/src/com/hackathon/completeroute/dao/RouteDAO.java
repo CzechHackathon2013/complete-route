@@ -27,9 +27,10 @@ import java.util.List;
 public interface RouteDAO {
 
     /**
+     * @param category the category name
      * @param company the company name
      * @return the list of {@link Route} for the company
      */
-    List<Route> getRoutesByCompany(String company);
+    List<Route> getRoutesByCompany(String category, String company);
 
 }
