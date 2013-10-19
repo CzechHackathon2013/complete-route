@@ -29,10 +29,39 @@ public class CRUDOperations {
     private void insertData() {
         insertTelco();
         insertBanking();
+        insertServices();
+        insertInsurance();
+        insertGovernment();
+    }
+
+    private void insertBanking() {
+        BasicDBObject banking = new BasicDBObject("_id", "Bankovnictví").append("icon", "banking");
+
+        BasicDBObject csob = new BasicDBObject("name", "ČSOB").append("description", "Česká obchodní banka")
+                .append("phone", "906112567").append("icon", "csob.png");
+        BasicDBObject routeCsob1 = new BasicDBObject("keypad", 1).append("description","Main1");
+        BasicDBObject routeCsob11 = new BasicDBObject("keypad", 1).append("description","Sub1");
+        BasicDBObject routeCsob12 = new BasicDBObject("keypad", 2).append("description","Sub2");
+        BasicDBObject routeCsob13 = new BasicDBObject("keypad", 3).append("description","Sub3");
+        routeCsob1.append("routes", Arrays.asList(routeCsob11, routeCsob12, routeCsob13));
+        BasicDBObject routeCsob2 = new BasicDBObject("keypad", 2).append("description","Main1");
+        BasicDBObject routeCsob21 = new BasicDBObject("keypad", 1).append("description","Sub1");
+        BasicDBObject routeCsob22 = new BasicDBObject("keypad", 2).append("description","Sub2");
+        BasicDBObject routeCsob23 = new BasicDBObject("keypad", 3).append("description","Sub3");
+        routeCsob2.append("routes", Arrays.asList(routeCsob21, routeCsob22, routeCsob23));
+        csob.append("routes", Arrays.asList(routeCsob1, routeCsob2));
+
+        BasicDBObject kb = new BasicDBObject("name", "Komerční banka").append("description", "Komerčka")
+                .append("phone", "906111555").append("icon", "kb.png");
+        BasicDBObject cs = new BasicDBObject("name", "Česká spořitelna").append("description", "Spořka")
+                .append("phone", "906666666").append("icon", "cs.png");
+
+        banking.append("companies", Arrays.asList(csob, kb, cs));
+        collection.insert(banking);
     }
 
     private void insertTelco() {
-        BasicDBObject telecommunications = new BasicDBObject("_id", "Telekomunikace").append("icon", "telco.png");
+        BasicDBObject telecommunications = new BasicDBObject("_id", "Telekomunikace").append("icon", "telco");
 
         BasicDBObject telefonica = new BasicDBObject("name", "Telefonica").append("description", "Bubliny")
                 .append("phone", "800184084").append("icon", "telefonica.png");
@@ -81,29 +110,18 @@ public class CRUDOperations {
         collection.insert(telecommunications);
     }
 
-    private void insertBanking() {
-        BasicDBObject banking = new BasicDBObject("_id", "Bankovnictví").append("icon", "banking.png");
+    private void insertServices() {
+        BasicDBObject services = new BasicDBObject("_id", "Služby").append("icon", "services");
+        collection.insert(services);
+    }
 
-        BasicDBObject csob = new BasicDBObject("name", "ČSOB").append("description", "Česká obchodní banka")
-                .append("phone", "906112567").append("icon", "csob.png");
-        BasicDBObject routeCsob1 = new BasicDBObject("keypad", 1).append("description","Main1");
-        BasicDBObject routeCsob11 = new BasicDBObject("keypad", 1).append("description","Sub1");
-        BasicDBObject routeCsob12 = new BasicDBObject("keypad", 2).append("description","Sub2");
-        BasicDBObject routeCsob13 = new BasicDBObject("keypad", 3).append("description","Sub3");
-        routeCsob1.append("routes", Arrays.asList(routeCsob11, routeCsob12, routeCsob13));
-        BasicDBObject routeCsob2 = new BasicDBObject("keypad", 2).append("description","Main1");
-        BasicDBObject routeCsob21 = new BasicDBObject("keypad", 1).append("description","Sub1");
-        BasicDBObject routeCsob22 = new BasicDBObject("keypad", 2).append("description","Sub2");
-        BasicDBObject routeCsob23 = new BasicDBObject("keypad", 3).append("description","Sub3");
-        routeCsob2.append("routes", Arrays.asList(routeCsob21, routeCsob22, routeCsob23));
-        csob.append("routes", Arrays.asList(routeCsob1, routeCsob2));
+    private void insertInsurance() {
+        BasicDBObject insurance = new BasicDBObject("_id", "Pojištění").append("icon", "insurance");
+        collection.insert(insurance);
+    }
 
-        BasicDBObject kb = new BasicDBObject("name", "Komerční banka").append("description", "Komerčka")
-                .append("phone", "906111555").append("icon", "kb.png");
-        BasicDBObject cs = new BasicDBObject("name", "Česká spořitelna").append("description", "Spořka")
-                .append("phone", "906666666").append("icon", "cs.png");
-
-        banking.append("companies", Arrays.asList(csob, kb, cs));
-        collection.insert(banking);
+    private void insertGovernment() {
+        BasicDBObject government = new BasicDBObject("_id", "Státní správa").append("icon", "government");
+        collection.insert(government);
     }
 }

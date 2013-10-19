@@ -16,28 +16,22 @@
 
 package com.hackathon.completeroute.pojo;
 
-import java.util.List;
-
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
 public class Company {
 
-    private String id;
     private String name;
     private String description;
-    private String category;
-    private List<Route> routes;
+    private String phone;
 
     public Company() {
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public Company(String name, String description, String phone) {
+        this.name = name;
+        this.description = description;
+        this.phone = phone;
     }
 
     public String getName() {
@@ -56,20 +50,11 @@ public class Company {
         this.description = description;
     }
 
-    public String getCategory() {
-        return category;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
-
-    public List<Route> getRoutes() {
-        return routes;
-    }
-
-    public void setRoutes(List<Route> routes) {
-        this.routes = routes;
-    }
-
 }

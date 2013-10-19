@@ -15,7 +15,7 @@ public class CategoriesResponse {
     public List<Category> getResult() {
         List<Category> categories = new LinkedList<>();
         for (CategoryResponse c : result) {
-            categories.add(new Category(c._id, c._id, c.icon));
+            categories.add(new Category(c.icon, c._id));
         }
         return categories;
     }

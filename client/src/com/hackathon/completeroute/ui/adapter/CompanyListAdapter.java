@@ -68,7 +68,7 @@ public class CompanyListAdapter extends ArrayAdapter<Company> {
 
         tvCompanyName.setText(company.getName());
         tvDescription.setText(company.getDescription());
-        tvCategory.setText(company.getCategory());
+        tvCategory.setText(company.getName());
 
         return v;
 
