@@ -36,7 +36,7 @@ import java.util.List;
  */
 public class JsonCompanyDAO implements CompanyDAO {
 
-    private final static String CONTEXT = "/categories";
+    private final static String CONTEXT = "companies";
     private JsonDAOFactory dao = new JsonDAOFactory();
 
     /**

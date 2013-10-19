@@ -24,7 +24,7 @@ public class RouteDAO {
     }
 
     public String getCompanies(String category) {
-        DBObject query = new BasicDBObject("_id", category);
+        DBObject query = new BasicDBObject("name", category);
         DBObject projection = new BasicDBObject("_id", false).append("icon", false)
                 .append("companies.routes", false);
         return executeFind(query, projection);
