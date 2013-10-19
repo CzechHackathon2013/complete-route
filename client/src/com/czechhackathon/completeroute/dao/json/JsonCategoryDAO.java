@@ -17,7 +17,10 @@
 package com.czechhackathon.completeroute.dao.json;
 
 import com.czechhackathon.completeroute.dao.CategoryDAO;
+import com.czechhackathon.completeroute.dao.factory.JsonDAOFactory;
+import com.czechhackathon.completeroute.dao.json.response.CategoriesResponse;
 import com.czechhackathon.completeroute.pojo.Category;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -28,12 +31,17 @@ import java.util.List;
  */
 public class JsonCategoryDAO implements CategoryDAO {
 
+    private final static String CONTEXT = "categories";
+    private JsonDAOFactory dao = new JsonDAOFactory();
+
     /**
      * @return all categories
      */
     @Override
     public List<Category> getCategories() {
-        throw new UnsupportedOperationException("Not implemented yet.");
+        JSONObject json = JsonDAOFactory.get(CONTEXT);
+        CategoriesResponse response = JsonDAOFactory.fromJson(json, CategoriesResponse.class);
+        return response.getResult();
     }
 
 }

@@ -22,6 +22,7 @@ import com.czechhackathon.completeroute.dao.CompanyDAO;
 import com.czechhackathon.completeroute.dao.RouteDAO;
 import com.czechhackathon.completeroute.dao.json.JsonCategoryDAO;
 import com.czechhackathon.completeroute.dao.json.JsonCompanyDAO;
+import com.czechhackathon.completeroute.dao.json.JsonDAOConfiguration;
 import com.czechhackathon.completeroute.dao.json.JsonRouteDAO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -44,7 +45,7 @@ import java.lang.reflect.Type;
  */
 public class JsonDAOFactory extends DAOFactory {
 
-    private final static String SERVICE = "http://localhost:8080";
+    private final static String SERVICE = JsonDAOConfiguration.SERVER_URI_DURING_ANDROID_EMULATION;
     private final static String SERVICE_CONTEXT = SERVICE + "/completeroute/";
     private static HttpClient client = null;
     private static Gson gson = null;
@@ -54,23 +55,17 @@ public class JsonDAOFactory extends DAOFactory {
      * Default constructor for JSON DAO Factory that holds HttpClient as main source
      */
     public JsonDAOFactory() {
-
         createConnection();
-
         gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
-
     }
 
     public static JSONObject get(String url) {
-
         HttpGet get = new HttpGet(SERVICE_CONTEXT + url);
         JSONObject result = null;
 
         try {
-
             String res = getResponse(client.execute(get));
-
             result = new JSONObject(res);
         } catch (IOException e) {
             Log.e(JsonDAOFactory.class.getSimpleName(), "Problem with connection to server " + SERVICE, e);
@@ -81,9 +76,7 @@ public class JsonDAOFactory extends DAOFactory {
             Log.e(JsonDAOFactory.class.getSimpleName(), "Unknown error during processing response from " + SERVICE +
                     " server", e);
         }
-
         return result;
-
     }
 
     /**
@@ -116,10 +109,8 @@ public class JsonDAOFactory extends DAOFactory {
      * @return the {@link HttpClient} client
      */
     protected static HttpClient createConnection() {
-
         client = new DefaultHttpClient();
         return client;
-
     }
 
     /**
@@ -129,12 +120,9 @@ public class JsonDAOFactory extends DAOFactory {
      * @throws Exception
      */
     private static String getResponse(HttpResponse resp) throws Exception {
-
         ResponseHandler<String> handler = new BasicResponseHandler();
-
         return handler.handleResponse(resp);
-
-    }
+   }
 
     @Override
     public CategoryDAO getCategoryDAO() {
@@ -150,5 +138,4 @@ public class JsonDAOFactory extends DAOFactory {
     public RouteDAO getRouteDAO() {
         return new JsonRouteDAO();
     }
-
 }
