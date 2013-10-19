@@ -18,16 +18,21 @@ package com.hackathon.completeroute.ui.async;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.RouteDAO;
 import com.hackathon.completeroute.dao.factory.DAOFactory;
 import com.hackathon.completeroute.pojo.Company;
 import com.hackathon.completeroute.pojo.Route;
+import com.hackathon.completeroute.ui.activity.CompanyDetailActivity;
 import com.hackathon.completeroute.ui.adapter.RouteListAdapter;
 
 import java.util.ArrayList;
@@ -113,6 +118,36 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
         lv = (ListView) activity.findViewById(R.id.lvRoute);
         lv.setAdapter(new RouteListAdapter(activity, c,
                 R.id.lvRoute, result));
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            /**
+             * Callback method to be invoked when an item in this AdapterView has
+             * been clicked.
+             * <p/>
+             * Implementers can call getItemAtPosition(position) if they need
+             * to access the data associated with the selected item.
+             *
+             * @param parent   The AdapterView where the click happened.
+             * @param view     The view within the AdapterView that was clicked (this
+             *                 will be a view provided by the adapter)
+             * @param position The position of the view in the adapter.
+             * @param id       The row id of the item that was clicked.
+             */
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                TextView route = (TextView) view.findViewById(R.id.tvRouteName);
+
+                Intent intent = new Intent(c, CompanyDetailActivity.class);
+                intent.putExtra(Route.NAME, route.getText());
+                activity.startActivity(intent);
+
+                Toast.makeText(c, c.getString(R.string.route_selected) + ": " + route.getText(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 }

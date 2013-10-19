@@ -16,10 +16,14 @@
 
 package com.hackathon.completeroute.pojo;
 
+import java.io.Serializable;
+
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class Route {
+public class Route implements Serializable {
+
+    public final static String NAME = "id";
 
     private Company company;
     private String name;

@@ -61,11 +61,15 @@ public class RouteListAdapter extends ArrayAdapter<Route> {
 
         Route route = this.routes.get(position);
 
-        TextView tvDescription = (TextView) v.findViewById(R.id.tvRoute);
+        TextView tvName = (TextView) v.findViewById(R.id.tvRouteName);
+        TextView tvNumberId = (TextView) v.findViewById(R.id.tvRouteId);
+        TextView tvDescription = (TextView) v.findViewById(R.id.tvRouteDesc);
 
         v.setClickable(true);
         v.setFocusable(true);
 
+        tvName.setText(route.getName());
+        tvNumberId.setText(String.valueOf(route.getKeypad()));
         tvDescription.setText(route.getDescription());
 
         return v;

@@ -97,6 +97,20 @@ public class CategoryListDataLoaderTask extends AsyncTask<Bundle, Void, List<Cat
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            /**
+             * Callback method to be invoked when an item in this AdapterView has
+             * been clicked.
+             * <p/>
+             * Implementers can call getItemAtPosition(position) if they need
+             * to access the data associated with the selected item.
+             *
+             * @param parent   The AdapterView where the click happened.
+             * @param v     The view within the AdapterView that was clicked (this
+             *                 will be a view provided by the adapter)
+             * @param position The position of the view in the adapter.
+             * @param id       The row id of the item that was clicked.
+             */
+            @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
                 TextView category = (TextView) v.findViewById(R.id.category_icon_text);

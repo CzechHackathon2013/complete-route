@@ -12,4 +12,5 @@
     <string name="company_selected">Selected company</string>
     <string name="route_item_desc">Route description</string>
     <string name="route_item_label">Routes:</string>
+    <string name="route_selected">Selected route</string><string name="route_item_name">Route name</string><string name="route_item_id">Number ID</string>
 </resources>
