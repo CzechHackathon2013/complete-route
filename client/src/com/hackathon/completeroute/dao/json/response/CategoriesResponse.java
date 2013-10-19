@@ -15,7 +15,7 @@ public class CategoriesResponse {
     public List<Category> getResult() {
         List<Category> categories = new LinkedList<>();
         for (CategoryResponse c : result) {
-            categories.add(new Category(c.icon, c._id));
+            categories.add(new Category(c._id, c.name));
         }
         return categories;
     }
@@ -26,11 +26,11 @@ public class CategoriesResponse {
 
     private static class CategoryResponse {
         private String _id;
-        private String icon;
+        private String name;
 
-        private CategoryResponse(String _id, String icon) {
+        private CategoryResponse(String _id, String name) {
             this._id = _id;
-            this.icon = icon;
+            this.name = name;
         }
     }
 }

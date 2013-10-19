@@ -35,7 +35,7 @@ public class CRUDOperations {
     }
 
     private void insertBanking() {
-        BasicDBObject banking = new BasicDBObject("_id", "Bankovnictví").append("icon", "banking");
+        BasicDBObject banking = new BasicDBObject("_id", "banking").append("name", "Bankovnictví").append("icon", "banking");
 
         BasicDBObject csob = new BasicDBObject("name", "ČSOB").append("description", "Česká obchodní banka")
                 .append("phone", "906112567").append("icon", "csob.png");
@@ -61,7 +61,7 @@ public class CRUDOperations {
     }
 
     private void insertTelco() {
-        BasicDBObject telecommunications = new BasicDBObject("_id", "Telekomunikace").append("icon", "telco");
+        BasicDBObject telecommunications = new BasicDBObject("_id", "telco").append("name", "Telekomunikace").append("icon", "telco");
 
         BasicDBObject telefonica = new BasicDBObject("name", "Telefonica").append("description", "Bubliny")
                 .append("phone", "800184084").append("icon", "telefonica.png");
@@ -111,17 +111,17 @@ public class CRUDOperations {
     }
 
     private void insertServices() {
-        BasicDBObject services = new BasicDBObject("_id", "Služby").append("icon", "services");
+        BasicDBObject services = new BasicDBObject("_id", "services").append("name", "Služby").append("icon", "services");
         collection.insert(services);
     }
 
     private void insertInsurance() {
-        BasicDBObject insurance = new BasicDBObject("_id", "Pojištění").append("icon", "insurance");
+        BasicDBObject insurance = new BasicDBObject("_id", "insurance").append("name", "Pojištění").append("icon", "insurance");
         collection.insert(insurance);
     }
 
     private void insertGovernment() {
-        BasicDBObject government = new BasicDBObject("_id", "Státní správa").append("icon", "government");
+        BasicDBObject government = new BasicDBObject("_id", "government").append("name", "Státní správa").append("icon", "government");
         collection.insert(government);
     }
 }

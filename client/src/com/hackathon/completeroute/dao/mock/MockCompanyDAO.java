@@ -17,6 +17,7 @@
 package com.hackathon.completeroute.dao.mock;
 
 import com.hackathon.completeroute.dao.CompanyDAO;
+import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
 import com.hackathon.completeroute.pojo.Route;
 

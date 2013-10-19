@@ -16,6 +16,7 @@
 
 package com.hackathon.completeroute.dao;
 
+import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
 
 import java.util.List;
