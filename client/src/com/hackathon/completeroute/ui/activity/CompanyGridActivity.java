@@ -16,16 +16,21 @@
 
 package com.hackathon.completeroute.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import com.hackathon.completeroute.R;
+import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.ui.CompleteRouteApplication;
 import com.hackathon.completeroute.ui.activity.bar.ApplicationTitleBarActivity;
-import com.hackathon.completeroute.ui.async.CategoryListDataLoaderTask;
+import com.hackathon.completeroute.ui.async.CompanyListDataLoaderTask;
 
 /**
+ * Company Grid activity
+ *
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class CategoryGridActivity extends ApplicationTitleBarActivity {
+public class CompanyGridActivity extends ApplicationTitleBarActivity {
 
     private CompleteRouteApplication app;
 
@@ -52,11 +57,20 @@ public class CategoryGridActivity extends ApplicationTitleBarActivity {
      */
     private void initUi(Bundle savedInstanceState) {
 
-        setContentView(R.layout.category_grid_layout);
+        setContentView(R.layout.company_grid_layout);
 
-        CategoryListDataLoaderTask categoryDataLoader = new CategoryListDataLoaderTask(this);
-        categoryDataLoader.execute(savedInstanceState);
+        // get intent data
+        Intent i = getIntent();
+
+        // Selected category
+        String category = i.getStringExtra(Category.NAME);
+        Bundle bundle = new Bundle();
+        bundle.putString(Category.NAME, category);
+
+        CompanyListDataLoaderTask companyDataLoader = new CompanyListDataLoaderTask(this);
+        companyDataLoader.execute(bundle);
 
     }
+
 
 }

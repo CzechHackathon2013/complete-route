@@ -27,6 +27,7 @@ public class CategoriesResponse {
     private static class CategoryResponse {
         private String _id;
         private String icon;
+
         private CategoryResponse(String _id, String icon) {
             this._id = _id;
             this.icon = icon;

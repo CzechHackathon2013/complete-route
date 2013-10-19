@@ -25,43 +25,30 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.hackathon.completeroute.R;
-import com.hackathon.completeroute.pojo.Category;
+import com.hackathon.completeroute.pojo.Company;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class CategoryImageAdapter extends BaseAdapter {
+public class CompanyImageAdapter extends BaseAdapter {
 
-    // references to our images
-    private static Map<String, Integer> mThumbs = new HashMap<>();
-    private List<Category> categoryList;
-
-    static {
-        //TODO better solution for mapping resources to categories
-        mThumbs.put("banking", R.drawable.cat_banking);
-        mThumbs.put("telco", R.drawable.cat_teleco);
-        mThumbs.put("services", R.drawable.cat_services);
-        mThumbs.put("insurance", R.drawable.cat_insurance);
-        mThumbs.put("government", R.drawable.cat_government);
-    }
-
+    private List<Company> companyList;
     private Activity mActivity;
     private Context mContext;
     // references to our images
     private Integer[] mThumbIds;
 
-    public CategoryImageAdapter(Activity a, Context c, List<Category> categoryList) {
+    public CompanyImageAdapter(Activity a, Context c, List<Company> companyList) {
         mActivity = a;
         mContext = c;
 
-        this.categoryList = categoryList;
-        mThumbIds = new Integer[categoryList.size()];
-        for (int i = 0; i < categoryList.size(); i++) {
-            mThumbIds[i] = mThumbs.get(categoryList.get(i).getId());
+        this.companyList = companyList;
+        mThumbIds = new Integer[companyList.size()];
+        for (int i = 0; i < companyList.size(); i++) {
+            //TODO velisher provide reference to image icon
+            mThumbIds[i] = CategoryImageAdapter.getThumbs().get(companyList.get(i).getCategory().toLowerCase());
         }
     }
 
@@ -88,19 +75,17 @@ public class CategoryImageAdapter extends BaseAdapter {
         if (convertView == null) {
             LayoutInflater li = mActivity.getLayoutInflater();
 
-            view = li.inflate(R.layout.category_grid_item_layout, null);
+            view = li.inflate(R.layout.company_grid_item_layout, null);
         } else {
             view = convertView;
         }
 
-        iconText = (TextView) view.findViewById(R.id.category_icon_text);
-        iconText.setText(categoryList.get(position).getName());
-        iconImage = (ImageView) view.findViewById(R.id.category_icon_image);
+        iconText = (TextView) view.findViewById(R.id.company_icon_text);
+        iconText.setText(companyList.get(position).getName());
+        iconImage = (ImageView) view.findViewById(R.id.company_icon_image);
         iconImage.setImageResource(mThumbIds[position]);
         return view;
     }
 
-    public static Map<String, Integer> getThumbs() {
-        return mThumbs;
-    }
+
 }

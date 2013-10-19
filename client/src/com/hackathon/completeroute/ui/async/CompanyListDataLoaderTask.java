@@ -27,18 +27,19 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.hackathon.completeroute.R;
-import com.hackathon.completeroute.dao.CategoryDAO;
+import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.factory.DAOFactory;
 import com.hackathon.completeroute.pojo.Category;
-import com.hackathon.completeroute.ui.activity.CompanyListActivity;
-import com.hackathon.completeroute.ui.adapter.CategoryImageAdapter;
+import com.hackathon.completeroute.pojo.Company;
+import com.hackathon.completeroute.ui.activity.CompanyDetailActivity;
+import com.hackathon.completeroute.ui.adapter.CompanyImageAdapter;
 
 import java.util.List;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class CategoryDataLoaderTask extends AsyncTask<Bundle, Void, List<Category>> {
+public class CompanyListDataLoaderTask extends AsyncTask<Bundle, Void, List<Company>> {
 
     private Context c;
     private Activity activity;
@@ -48,7 +49,7 @@ public class CategoryDataLoaderTask extends AsyncTask<Bundle, Void, List<Categor
      *
      * @param activity the parent activity
      */
-    public CategoryDataLoaderTask(Activity activity) {
+    public CompanyListDataLoaderTask(Activity activity) {
         this.activity = activity;
         this.c = activity.getApplicationContext();
     }
@@ -68,14 +69,18 @@ public class CategoryDataLoaderTask extends AsyncTask<Bundle, Void, List<Categor
      * @see #publishProgress
      */
     @Override
-    protected List<Category> doInBackground(Bundle... params) {
+    protected List<Company> doInBackground(Bundle... params) {
+
         // Create the required DAO Factory
-        DAOFactory daoFactory = DAOFactory.getDAOFactory(DAOFactory.MOCK);
+        DAOFactory dao = DAOFactory.getDefaultDAOFactory();
 
         // Create a DAO
-        CategoryDAO categoryDAO = daoFactory.getCategoryDAO();
+        CompanyDAO companyDAO = dao.getCompanyDAO();
 
-        return categoryDAO.getCategories();
+        String category = params[0].getString(Category.NAME);
+
+        return companyDAO.getCompaniesByCategory(category);
+
     }
 
     /**
@@ -89,23 +94,23 @@ public class CategoryDataLoaderTask extends AsyncTask<Bundle, Void, List<Categor
      * @see #onCancelled(Object)
      */
     @Override
-    protected void onPostExecute(List<Category> categories) {
+    protected void onPostExecute(List<Company> companies) {
 
-        GridView gridview = (GridView) activity.findViewById(R.id.category_grid);
+        GridView gridview = (GridView) activity.findViewById(R.id.company_grid);
 
-        gridview.setAdapter(new CategoryImageAdapter(activity, c, categories));
+        gridview.setAdapter(new CompanyImageAdapter(activity, c, companies));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
-                TextView category = (TextView) v.findViewById(R.id.category_icon_text);
+                TextView company = (TextView) v.findViewById(R.id.company_icon_text);
 
-                Intent intent = new Intent(c, CompanyListActivity.class);
-                intent.putExtra(Category.NAME, category.getText());
+                Intent intent = new Intent(c, CompanyDetailActivity.class);
+                intent.putExtra(Company.NAME, company.getText());
                 activity.startActivity(intent);
 
-                Toast.makeText(c, c.getString(R.string.category_selected) + ": " + category.getText(),
+                Toast.makeText(c, c.getString(R.string.company_selected) + ": " + company.getText(),
                         Toast.LENGTH_SHORT).show();
             }
         });

@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:label="@string/app_name" android:name=".ui.activity.CompanyListActivity"
+        <activity android:label="@string/app_name" android:name=".ui.activity.CompanyGridActivity"
                   android:icon="@drawable/ic_launcher_cr" android:launchMode="singleInstance"
                   android:screenOrientation="unspecified">
         </activity>

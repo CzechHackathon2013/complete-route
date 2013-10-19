@@ -23,6 +23,8 @@ import java.util.List;
  */
 public class Company {
 
+    public final static String NAME = "id";
+
     private String id;
     private String name;
     private String description;

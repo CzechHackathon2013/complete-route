@@ -18,20 +18,16 @@ package com.hackathon.completeroute.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import com.hackathon.completeroute.R;
-import com.hackathon.completeroute.pojo.Category;
+import com.hackathon.completeroute.pojo.Company;
 import com.hackathon.completeroute.ui.CompleteRouteApplication;
 import com.hackathon.completeroute.ui.activity.bar.ApplicationTitleBarActivity;
-import com.hackathon.completeroute.ui.adapter.CategoryImageAdapter;
 import com.hackathon.completeroute.ui.async.CompanyDataLoaderTask;
 
 /**
- * Main activity of application - root screen
- *
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class CompanyListActivity extends ApplicationTitleBarActivity {
+public class CompanyDetailActivity extends ApplicationTitleBarActivity {
 
     private CompleteRouteApplication app;
 
@@ -58,51 +54,18 @@ public class CompanyListActivity extends ApplicationTitleBarActivity {
      */
     private void initUi(Bundle savedInstanceState) {
 
-        setContentView(R.layout.company_list_layout);
+        setContentView(R.layout.company_detail_layout);
 
         // get intent data
         Intent i = getIntent();
 
         // Selected category
-        String category = i.getStringExtra(Category.NAME);
+        String company = i.getStringExtra(Company.NAME);
         Bundle bundle = new Bundle();
-        bundle.putString(Category.NAME, category);
+        bundle.putString(Company.NAME, company);
 
-        CompanyDataLoaderTask companyDataLoader = new CompanyDataLoaderTask(this);
-        companyDataLoader.execute(bundle);
+        CompanyDataLoaderTask companyDetailLoader = new CompanyDataLoaderTask(this);
+        companyDetailLoader.execute(bundle);
 
     }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            destroyThis();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    protected void destroyThis() {
-        super.onDestroy();
-
-	    /*
-         * Notify the system to finalize and collect all objects of the
-	     * application on exit so that the process running the application can
-	     * be killed by the system without causing issues. NOTE: If this is set
-	     * to true then the process will not be killed until all of its threads
-	     * have closed.
-	     */
-        System.runFinalization();
-
-	    /*
-         * Force the system to close the application down completely instead of
-	     * retaining it in the background. The process that runs the application
-	     * will be killed. The application will be completely created as a new
-	     * application in a new process if the user starts the application
-	     * again.
-	     */
-        System.exit(0);
-    }
-
-
 }

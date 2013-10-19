@@ -17,11 +17,8 @@
 package com.hackathon.completeroute.dao.factory;
 
 import android.util.Log;
-<<<<<<< HEAD
-=======
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
->>>>>>> 03fe70e4e28085188365c473034f7e1d01c809f3
 import com.hackathon.completeroute.dao.CategoryDAO;
 import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.RouteDAO;
@@ -29,11 +26,6 @@ import com.hackathon.completeroute.dao.json.JsonCategoryDAO;
 import com.hackathon.completeroute.dao.json.JsonCompanyDAO;
 import com.hackathon.completeroute.dao.json.JsonDAOConfiguration;
 import com.hackathon.completeroute.dao.json.JsonRouteDAO;
-<<<<<<< HEAD
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-=======
->>>>>>> 03fe70e4e28085188365c473034f7e1d01c809f3
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
