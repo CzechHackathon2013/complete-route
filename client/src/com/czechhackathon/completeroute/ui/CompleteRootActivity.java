@@ -18,6 +18,8 @@ package com.czechhackathon.completeroute.ui;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
+import com.czechhackathon.completeroute.R;
+import com.czechhackathon.completeroute.ui.async.CompanyDataLoaderTask;
 import com.czechhackathon.completeroute.ui.bar.ApplicationTitleBarActivity;
 
 /**
@@ -43,16 +45,19 @@ public class CompleteRootActivity extends ApplicationTitleBarActivity {
         // (this is not recreated as often as each Activity)
         this.app = (CompleteRouteApplication) this.getApplication();
 
-        initUi();
+        initUi(savedInstanceState);
 
     }
 
     /**
      * initialization of ui
      */
-    private void initUi() {
+    private void initUi(Bundle savedInstanceState) {
 
-        //TODO hostovo
+        setContentView(R.layout.company_list);
+
+        CompanyDataLoaderTask companyDataLoader = new CompanyDataLoaderTask(this);
+        companyDataLoader.execute(savedInstanceState);
 
     }
 
