@@ -17,7 +17,6 @@
 package com.hackathon.completeroute.ui.adapter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,13 +35,11 @@ public class CompanyImageAdapter extends BaseAdapter {
 
     private List<Company> companyList;
     private Activity mActivity;
-    private Context mContext;
     // references to our images
     private Integer[] mThumbIds;
 
-    public CompanyImageAdapter(Activity a, Context c, List<Company> companyList) {
+    public CompanyImageAdapter(Activity a, List<Company> companyList) {
         mActivity = a;
-        mContext = c;
 
         this.companyList = companyList;
         mThumbIds = new Integer[companyList.size()];

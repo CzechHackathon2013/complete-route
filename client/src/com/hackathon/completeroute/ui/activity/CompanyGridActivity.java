@@ -18,7 +18,6 @@ package com.hackathon.completeroute.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.ui.CompleteRouteApplication;
