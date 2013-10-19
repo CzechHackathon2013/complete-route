@@ -13,10 +13,33 @@ public class CRUDOperations {
 
     private static DBCollection collection;
 
+    public static void main(String[] args) throws UnknownHostException {
+        MongoClient client = new MongoClient();
+        DB courseDB = client.getDB(CompleteRouteServer.DATABASE_NAME);
+        collection = courseDB.getCollection(RouteDAO.ROUTES_COLLECTION);
+
+        CRUDOperations ops = new CRUDOperations();
+        ops.dropCollection();
+        ops.insertData();
+    }
+
+    private void dropCollection() {
+        collection.drop();
+    }
+
+    private void insertData() {
+        DBObject telco = new BasicDBObject("_id", "telco")
+                .append("companies", Arrays.asList("Vodafone", "Telefonica", "T-Mobile", "Centropol"));
+        collection.insert(telco);
+        DBObject banking = new BasicDBObject("_id", "banking")
+                .append("companies", Arrays.asList("ČSOB", "Komerční banka", "Air bank", "Česká spořitelna"));
+        collection.insert(banking);
+    }
+
     public void init() throws UnknownHostException {
         MongoClient client = new MongoClient();
-        DB courseDB = client.getDB("completeroute");
-        collection = courseDB.getCollection("test");
+        DB courseDB = client.getDB(CompleteRouteServer.DATABASE_NAME);
+        collection = courseDB.getCollection(RouteDAO.ROUTES_COLLECTION);
         collection.drop();
 
 //        testInsert();

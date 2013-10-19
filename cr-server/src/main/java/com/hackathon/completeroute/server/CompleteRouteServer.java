@@ -11,11 +11,14 @@ import java.io.IOException;
  */
 public class CompleteRouteServer {
 
+    public static final String DATABASE_NAME = "completeroute";
+    public static final String CONTEXT = "completeroute";
+
     private RouteDAO routeDAO;
 
     public CompleteRouteServer(String mongoUri) throws IOException {
         MongoClient mongoClient = new MongoClient(new MongoClientURI(mongoUri));
-        DB blogDatabase = mongoClient.getDB("completeroute");
+        DB blogDatabase = mongoClient.getDB(DATABASE_NAME);
         routeDAO = new RouteDAO(blogDatabase);
 
         setPort(8082);
@@ -24,24 +27,24 @@ public class CompleteRouteServer {
 
     private void initializeRoutes() throws IOException {
 
-        get(new Route("/") {
+        get(new Route(CONTEXT + "/") {
             @Override
             public Object handle(Request request, Response response) {
                 return "Complete-route server says hello!";
             }
         });
 
-        get(new Route("/categories") {
+        get(new Route(CONTEXT + "/categories") {
             @Override
             public Object handle(Request request, Response response) {
-                return "Categories... to be done";
+                return routeDAO.getCategories();
             }
         });
 
-        get(new Route("/companies/:category") {
+        get(new Route(CONTEXT + "/companies/:category") {
             @Override
             public Object handle(Request request, Response response) {
-                return "Companies of category " + request.params(":category") + "... to be done";
+                return routeDAO.getCompanies(request.params(":category"));
             }
         });
     }
