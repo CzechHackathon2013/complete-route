@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">complete-route</string>
+    <string name="app_name">PBX Complete Route</string>
+    <string name="app_description">PBX Complete Route that enables to call to the call center in short time</string>
+
+    <string name="main_category">Categories</string>
+    <string name="main_company">Companies</string>
+    <string name="company_item_name">Company name</string>
+    <string name="company_item_desc">Description</string><string name="company_item_category">Category</string>
+
 </resources>
