@@ -3,30 +3,31 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:orientation="vertical" android:layout_height="fill_parent" android:id="@+id/company_item_layout"
-        android:background="#F2F2FF"
+        android:background="#ff73ff31"
         android:baselineAligned="false">
 
     <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:orientation="horizontal" android:layout_height="wrap_content" android:id="@+id/company_item_layout_inner"
-            android:background="#F2F2FF"
+            android:background="#ffff1217"
             android:baselineAligned="false">
 
         <ImageView android:id="@+id/company_item_ivIcon" android:layout_width="wrap_content"
                    android:layout_height="wrap_content" android:layout_gravity="center_vertical"
-                   android:layout_marginLeft="5dip" android:src="@drawable/icon_company"
-                   android:contentDescription="@string/company_item_desc"/>
+                   android:src="@drawable/icon_company"
+                   android:contentDescription="@string/company_item_desc"
+                   android:layout_margin="16dp"/>
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:id="@+id/company_item_infoLayout" android:layout_marginTop="5dip"
-                  android:background="#F2F2FF" android:layout_marginLeft="5dp">
+                  android:background="#ffffeb10" android:layout_marginLeft="5dp">
         <LinearLayout android:layout_width="match_parent" android:orientation="vertical"
                       android:layout_gravity="center_vertical|center_horizontal" android:layout_height="fill_parent"
-                      android:id="@+id/company_list_item_layout" android:background="#F2F2FF"
-                      android:layout_marginLeft="24dp">
+                      android:id="@+id/company_list_item_layout" android:background="#ff7cffcb"
+                      android:layout_marginLeft="0dp">
             <TextView android:layout_height="wrap_content" android:id="@+id/tvCompanyName" android:textSize="14dip"
                       android:textStyle="bold" android:text="@string/company_item_name"
-                      android:layout_marginLeft="10dip" android:layout_width="wrap_content"
+                      android:layout_marginLeft="10dip" android:layout_width="match_parent"
                       android:layout_marginRight="20dip" android:textColor="#000000"/>
             <TextView android:text="@string/company_item_category" android:layout_marginTop="5dip"
                       android:layout_height="wrap_content" android:id="@+id/tvCategory"
@@ -48,10 +49,11 @@
 
     <TextView android:layout_height="wrap_content" android:id="@+id/textView" android:textSize="14dip"
               android:textStyle="bold" android:text="@string/route_item_label" android:layout_marginLeft="10dip"
-              android:layout_width="wrap_content" android:layout_marginRight="20dip" android:textColor="#000000"
-              android:layout_marginBottom="10dip" android:layout_marginTop="10dip"/>
+              android:layout_width="match_parent" android:layout_marginRight="10dip" android:textColor="#000000"
+              android:layout_marginBottom="10dip" android:layout_marginTop="10dip"
+              android:layout_gravity="center_vertical"/>
     <ListView android:layout_width="fill_parent" android:dividerHeight="1dip" android:divider="#E0E0E0"
-              android:layout_height="fill_parent" android:id="@+id/lvRoute" android:background="#F2F2FF"/>
+              android:layout_height="fill_parent" android:id="@+id/lvRoute" android:background="#ffff7acd"/>
 
 
 </LinearLayout>
