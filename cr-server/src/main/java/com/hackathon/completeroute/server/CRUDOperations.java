@@ -48,6 +48,7 @@ public class CRUDOperations {
 //        testFindAndModify();
     }
 
+    //delete me please
     public void testInsert() {
         DBObject doc = new BasicDBObject();
         doc.put("userName", "mdojcar");
