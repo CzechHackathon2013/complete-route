@@ -5,7 +5,7 @@
         android:id="@+id/company_grid"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:columnWidth="95dp"
+        android:columnWidth="70dp"
         android:numColumns="auto_fit"
         android:verticalSpacing="0dp"
         android:horizontalSpacing="5dp"

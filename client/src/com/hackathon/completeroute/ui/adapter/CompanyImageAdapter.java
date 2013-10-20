@@ -26,14 +26,24 @@ import android.widget.TextView;
 import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.pojo.Company;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
 public class CompanyImageAdapter extends BaseAdapter {
 
+    // references to our images
+    private static Map<String, Integer> mThumbs = new HashMap<>();
     private List<Company> companyList;
+
+    static {
+        mThumbs.put("o2_logo", R.drawable.o2_logo);
+        mThumbs.put("centropol_logo", R.drawable.centropol_logo);
+    }
+
     private Activity mActivity;
     // references to our images
     private Integer[] mThumbIds;
@@ -44,8 +54,7 @@ public class CompanyImageAdapter extends BaseAdapter {
         this.companyList = companyList;
         mThumbIds = new Integer[companyList.size()];
         for (int i = 0; i < companyList.size(); i++) {
-            //TODO velisher provide reference to image icon
-            mThumbIds[i] = CategoryImageAdapter.getThumbs().get(companyList.get(i).getCategory().toLowerCase());
+            mThumbIds[i] = mThumbs.get(companyList.get(i).getIcon());
         }
     }
 
@@ -65,7 +74,7 @@ public class CompanyImageAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View view;
-        TextView iconText = null;
+        TextView iconText;
         ImageView iconImage;
 
 
