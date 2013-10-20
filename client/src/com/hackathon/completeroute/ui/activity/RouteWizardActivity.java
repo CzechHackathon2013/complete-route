@@ -16,17 +16,32 @@
 
 package com.hackathon.completeroute.ui.activity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 import com.hackathon.completeroute.R;
-import com.hackathon.completeroute.pojo.Route;
+import com.hackathon.completeroute.pojo.Company;
 import com.hackathon.completeroute.ui.CompleteRouteApplication;
 import com.hackathon.completeroute.ui.activity.bar.ApplicationTitleBarActivity;
+import com.hackathon.completeroute.ui.adapter.RouteItemAdapter;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
 public class RouteWizardActivity extends ApplicationTitleBarActivity {
 
+    private static Company company;
+    private ImageView routekey1;
+    private ImageView routekey2;
+    private ImageView routekey3;
+    private ImageView routekey4;
+    private ImageView dialRoute;
     private CompleteRouteApplication app;
 
     public CompleteRouteApplication getApplicationContext() {
@@ -43,6 +58,9 @@ public class RouteWizardActivity extends ApplicationTitleBarActivity {
         // (this is not recreated as often as each Activity)
         this.app = (CompleteRouteApplication) this.getApplication();
 
+        // Selected route
+        company = (Company) getIntent().getSerializableExtra(Company.class.getSimpleName());
+
         initUi(savedInstanceState);
 
     }
@@ -54,10 +72,24 @@ public class RouteWizardActivity extends ApplicationTitleBarActivity {
 
         setContentView(R.layout.route_wizard_layout);
 
-        // Selected route
-        Route route = (Route) getIntent().getSerializableExtra(Route.class.getSimpleName());
+        routekey1 = (ImageView) this.findViewById(R.id.routekey1);
+        routekey2 = (ImageView) this.findViewById(R.id.routekey2);
+        routekey3 = (ImageView) this.findViewById(R.id.routekey3);
+        routekey4 = (ImageView) this.findViewById(R.id.routekey4);
+        dialRoute = (ImageView) this.findViewById(R.id.dialRoute);
 
-        //TODO thanus
+        dialRoute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + company.getPhone()));
+                startActivity(intent);
+
+            }
+        });
+
+        ListView lv = (ListView) this.findViewById(R.id.route_list);
+        lv.setAdapter(new RouteItemAdapter(this, company.getRoutes()));
 
 
     }

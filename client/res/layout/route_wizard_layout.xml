@@ -16,21 +16,48 @@
             android:layout_marginRight="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text='"Type here what you need"'
-            android:textColor="#7f7f7f"
-            android:textAlignment="center"/>
+            android:text=""
+            android:textColor="#7f7f7f" android:inputType="textAutoComplete"/>
 
     <TableRow
             android:layout_width="fill_parent"
             android:layout_height="80dp"
-            android:background="#ff8c78"
-            android:baselineAligned="false"
-            android:id="@+id/dzambulka">
+            android:background="#ccff8f"
+            android:baselineAligned="true"
+            android:id="@+id/dzambulka" android:padding="6dp">
+
+
+        <ImageView
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/routekey1" android:layout_gravity="center" android:clickable="true"
+                android:focusable="true" android:src="@drawable/square_dashed_rounded_128"/>
+        <ImageView
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/routekey2" android:layout_gravity="center" android:clickable="true"
+                android:focusable="true" android:src="@drawable/square_dashed_rounded_128"/>
+        <ImageView
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/routekey3" android:layout_gravity="center" android:clickable="true"
+                android:focusable="true" android:src="@drawable/square_dashed_rounded_128"/>
+        <ImageView
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/routekey4" android:layout_gravity="center" android:clickable="true"
+                android:focusable="true" android:src="@drawable/square_dashed_rounded_128"/>
+        <ImageView
+                android:layout_width="76dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/dialRoute" android:clickable="true" android:focusableInTouchMode="false"
+                android:focusable="true" android:src="@drawable/directcall_ico" android:paddingTop="8dp"/>
     </TableRow>
 
     <ListView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/listView"
-            android:background="#FFF"/>
+            android:id="@+id/route_list"
+            android:background="#FFF" android:paddingTop="15dp"/>
+
 </LinearLayout>

@@ -14,5 +14,5 @@
     <string name="route_item_label">Call numbers:</string>
     <string name="callnumber_selected">Selected number</string>
     <string name="callnumber_item_name">Call number</string>
-    <string name="route_item_id">Number ID</string>
+    <string name="route_item_id">Number ID</string><string name="route_item_name">Route name</string>
 </resources>
