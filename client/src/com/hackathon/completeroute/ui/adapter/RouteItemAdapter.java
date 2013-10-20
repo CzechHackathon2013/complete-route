@@ -16,7 +16,6 @@
 
 package com.hackathon.completeroute.ui.adapter;
 
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,19 +24,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.pojo.Route;
+import com.hackathon.completeroute.ui.activity.RouteWizardActivity;
 import com.hackathon.completeroute.ui.adapter.provider.KeyResourceProvider;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
 public class RouteItemAdapter extends BaseAdapter {
 
-    private List<Route> routes;
-    private Activity activity;
+    private static Map<ImageView, Integer> ivContainer = new HashMap<>();
 
-    public RouteItemAdapter(Activity activity, List<Route> routes) {
+    private List<Route> routes;
+    private RouteWizardActivity activity;
+
+    public RouteItemAdapter(RouteWizardActivity activity, List<Route> routes) {
         this.activity = activity;
         this.routes = routes;
     }
@@ -91,6 +95,20 @@ public class RouteItemAdapter extends BaseAdapter {
         iconText.setText(routes.get(position).getDescription());
         iconImage = (ImageView) view.findViewById(R.id.routekey_item_icon);
         iconImage.setImageResource(KeyResourceProvider.getKeyResource(routes.get(position).getKeypad()));
+
+        ivContainer.put(iconImage, routes.get(position).getKeypad());
+
+        iconImage.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                ImageView iconImage = (ImageView) v.findViewById(R.id.routekey_item_icon);
+                Integer routeKey = ivContainer.get(iconImage);
+                activity.setRouteKey(routeKey);
+
+            }
+        });
 
         return view;
     }

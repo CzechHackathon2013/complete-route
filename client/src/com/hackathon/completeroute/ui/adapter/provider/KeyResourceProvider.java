@@ -55,4 +55,22 @@ public class KeyResourceProvider {
 
     }
 
+    /**
+     * Get key from resource of icon
+     *
+     * @param resource the resource
+     * @return the key for resource
+     */
+    public static Integer getKeyByResource(Integer resource) {
+
+        Integer result = 0;
+
+        for (Map.Entry<Integer, Integer> entry : keyMap.entrySet()) {
+            if (entry.getValue().intValue() == resource.intValue()) {
+                result = entry.getKey();
+            }
+        }
+        return result;
+    }
+
 }

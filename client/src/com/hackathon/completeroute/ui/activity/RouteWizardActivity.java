@@ -16,13 +16,10 @@
 
 package com.hackathon.completeroute.ui.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import com.hackathon.completeroute.R;
@@ -30,12 +27,17 @@ import com.hackathon.completeroute.pojo.Company;
 import com.hackathon.completeroute.ui.CompleteRouteApplication;
 import com.hackathon.completeroute.ui.activity.bar.ApplicationTitleBarActivity;
 import com.hackathon.completeroute.ui.adapter.RouteItemAdapter;
+import com.hackathon.completeroute.ui.adapter.provider.KeyResourceProvider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
 public class RouteWizardActivity extends ApplicationTitleBarActivity {
 
+    private static List<ImageView> selectedRoutes = new ArrayList<>();
     private static Company company;
     private ImageView routekey1;
     private ImageView routekey2;
@@ -62,6 +64,47 @@ public class RouteWizardActivity extends ApplicationTitleBarActivity {
         company = (Company) getIntent().getSerializableExtra(Company.class.getSimpleName());
 
         initUi(savedInstanceState);
+
+    }
+
+    /**
+     * Set route key to pipe line
+     *
+     * @param routeKey the selected key
+     */
+    public void setRouteKey(Integer routeKey) {
+
+        int routeCount = selectedRoutes.size();
+
+        //TODO clear all
+        if (routeCount>3) {
+            for(ImageView iv : selectedRoutes) {
+                iv.setImageResource(R.drawable.square_dashed_rounded_128);
+            }
+            selectedRoutes.clear();
+            routeCount = 0;
+        }
+
+        switch (routeCount) {
+            case 0:
+                routekey1.setImageResource(KeyResourceProvider.getKeyResource(routeKey));
+                selectedRoutes.add(routekey1);
+                break;
+            case 1:
+                routekey2.setImageResource(KeyResourceProvider.getKeyResource(routeKey));
+                selectedRoutes.add(routekey2);
+                break;
+            case 2:
+                routekey3.setImageResource(KeyResourceProvider.getKeyResource(routeKey));
+                selectedRoutes.add(routekey3);
+                break;
+            case 3:
+                routekey4.setImageResource(KeyResourceProvider.getKeyResource(routeKey));
+                selectedRoutes.add(routekey4);
+                break;
+            default:
+                throw new RuntimeException("Not implemented");
+        }
 
     }
 
