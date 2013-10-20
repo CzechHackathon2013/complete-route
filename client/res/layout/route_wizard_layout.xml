@@ -26,43 +26,49 @@
 
     <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="80dp"
-            android:background="#ccff8f"
+            android:layout_height="64dp"
+            android:background="#fff"
             android:baselineAligned="true"
-            android:id="@+id/dzambulka" android:padding="6dp">
+            android:id="@+id/dzambulka"
+            android:paddingRight="32dp"
+            android:paddingLeft="5dp"
+            android:layout_gravity="top">
 
 
         <ImageView
-                android:layout_width="76dp"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/routekey1" android:layout_gravity="center" android:clickable="true"
                 android:focusable="true" android:src="@drawable/square_dashed_rounded_128"/>
         <ImageView
-                android:layout_width="76dp"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/routekey2" android:layout_gravity="center" android:clickable="true"
                 android:focusable="true" android:src="@drawable/square_dashed_rounded_128"/>
         <ImageView
-                android:layout_width="76dp"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/routekey3" android:layout_gravity="center" android:clickable="true"
                 android:focusable="true" android:src="@drawable/square_dashed_rounded_128"/>
         <ImageView
-                android:layout_width="76dp"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/routekey4" android:layout_gravity="center" android:clickable="true"
                 android:focusable="true" android:src="@drawable/square_dashed_rounded_128"/>
         <ImageView
-                android:layout_width="76dp"
+                android:layout_width="64dp"
                 android:layout_height="fill_parent"
                 android:id="@+id/dialRoute" android:clickable="true" android:focusableInTouchMode="false"
-                android:focusable="true" android:src="@drawable/directcall_ico" android:paddingTop="8dp"/>
+                android:focusable="true" android:src="@drawable/directcall_ico"
+                android:paddingLeft="16dp"
+                android:layout_marginLeft="32dp"/>
     </TableRow>
 
     <ListView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/route_list"
-            android:background="#FFF" android:paddingTop="15dp"/>
+            android:background="#FFF" android:paddingTop="15dp"
+            android:layout_gravity="left"/>
 
 </LinearLayout>
