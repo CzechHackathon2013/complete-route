@@ -4,7 +4,9 @@
         android:layout_width="match_parent"
         android:orientation="vertical" android:layout_height="fill_parent" android:id="@+id/route_wizard"
         android:background="#FFF"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
     <EditText
             android:layout_width="match_parent"
@@ -16,12 +18,7 @@
             android:layout_marginRight="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text=""
-            android:textColor="#7f7f7f" android:inputType="textAutoComplete"/>
-
-            android:text="@string/keyword_search"
-            android:textColor="#7f7f7f"
-            android:inputType="textAutoComplete"
+            android:textColor="#7f7f7f" android:inputType="textAutoComplete"
             />
 
     <TableRow
