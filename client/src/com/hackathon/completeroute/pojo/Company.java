@@ -16,6 +16,7 @@
 
 package com.hackathon.completeroute.pojo;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -33,14 +34,12 @@ public class Company {
     private String category;
     private List<Route> routes;
 
-    public Company() {
-    }
-
     public Company(String name, String description, String phone, String icon) {
         this.name = name;
         this.description = description;
         this.phone = phone;
         this.icon = icon;
+        this.routes = Collections.emptyList();
     }
 
     public String getName() {

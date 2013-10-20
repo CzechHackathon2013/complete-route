@@ -32,33 +32,6 @@ public class MockCategoryDAO implements CategoryDAO {
      */
     @Override
     public List<Category> getCategories() {
-        List<Category> result = new LinkedList<>();
-
-        Category category = new Category();
-        category.setName("Banking");
-        category.setId("banking");
-        result.add(category);
-
-        category = new Category();
-        category.setName("Telco");
-        category.setId("telco");
-        result.add(category);
-
-        category = new Category();
-        category.setName("Services");
-        category.setId("services");
-        result.add(category);
-
-        category = new Category();
-        category.setName("Insurance");
-        category.setId("insurance");
-        result.add(category);
-
-        category = new Category();
-        category.setName("Government");
-        category.setId("government");
-        result.add(category);
-
-        return result;
+        return MockDB.getInstance().getCategories();
     }
 }

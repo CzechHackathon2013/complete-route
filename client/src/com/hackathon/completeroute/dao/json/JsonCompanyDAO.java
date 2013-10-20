@@ -40,26 +40,10 @@ public class JsonCompanyDAO implements CompanyDAO {
     private JsonDAOFactory dao = new JsonDAOFactory();
 
     /**
-     * @return {@link com.hackathon.completeroute.pojo.Company} by id.
-     */
-    @Override
-    public Company getCompanyById(String id) {
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    /**
      * @return {@link com.hackathon.completeroute.pojo.Company} by name.
      */
     @Override
     public Company getCompanyByName(String name) {
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    /**
-     * @return all {@link com.hackathon.completeroute.pojo.Company}
-     */
-    @Override
-    public List<Company> getCompanies() {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 

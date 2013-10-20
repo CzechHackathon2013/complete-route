@@ -17,6 +17,7 @@
 package com.hackathon.completeroute.pojo;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -37,6 +38,7 @@ public class Route implements Serializable {
     public Route(int keypad, String description) {
         this.keypad = keypad;
         this.description = description;
+        this.routes = Collections.emptyList();
     }
 
     public int getKeypad() {

@@ -21,48 +21,29 @@ import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
 import com.hackathon.completeroute.pojo.Route;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
 public class MockCompanyDAO implements CompanyDAO {
 
-    private static Company company;
-
-    static {
-        company = new Company();
-        company.setDescription("Description");
-        company.setName("O2");
-        company.setPhone("906112567");
-        company.setCategory("telco");
-    }
-
-    /**
-     * @return {@link com.hackathon.completeroute.pojo.Company} by id.
-     */
-    @Override
-    public Company getCompanyById(String id) {
-        return company;
-    }
-
     /**
      * @return {@link com.hackathon.completeroute.pojo.Company} by name.
      */
     @Override
     public Company getCompanyByName(String name) {
-        return company;
-    }
-
-    /**
-     * @return all {@link com.hackathon.completeroute.pojo.Company}
-     */
-    @Override
-    public List<Company> getCompanies() {
-        return new ArrayList<>(Arrays.asList(company));
+        List<Category> categories = MockDB.getInstance().getCategories();
+        for (Category cat: categories) {
+            List<Company> companies = cat.getCompanies();
+            if (companies != null && !companies.isEmpty()) {
+                for (Company comp : companies) {
+                    if (comp.getName().equals(name))
+                        return comp;
+                }
+            }
+        }
+        return null;
     }
 
     /**
@@ -71,10 +52,12 @@ public class MockCompanyDAO implements CompanyDAO {
      */
     @Override
     public List<Company> getCompaniesByCategory(String category) {
-        List<Company> result = new ArrayList<>();
-        if (category.equalsIgnoreCase("Telco")) {
-            result = new ArrayList<>(Arrays.asList(company));
+        List<Category> categories = MockDB.getInstance().getCategories();
+        for (Category cat: categories) {
+            if (cat.getName().equals(category)) {
+                return cat.getCompanies();
+            }
         }
-        return result;
+        return Collections.emptyList();
     }
 }

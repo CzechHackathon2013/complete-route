@@ -29,19 +29,9 @@ import java.util.List;
 public interface CompanyDAO {
 
     /**
-     * @return {@link Company} by id.
-     */
-    Company getCompanyById(String id);
-
-    /**
      * @return {@link Company} by name.
      */
     Company getCompanyByName(String name);
-
-    /**
-     * @return all {@link Company}
-     */
-    List<Company> getCompanies();
 
     /**
      * @param category category
