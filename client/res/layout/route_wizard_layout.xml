@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:orientation="vertical" android:layout_height="fill_parent" android:id="@+id/route_wizard"
-        android:background="#F2F2FF"
+        android:background="#FFF"
         android:baselineAligned="false">
 
     <EditText
@@ -15,16 +15,22 @@
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:text='"Type here what you need"'
+            android:textColor="#7f7f7f"
+            android:textAlignment="center"/>
 
-    <GridView
+    <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="150dp"
-            android:id="@+id/gridView"
-            android:background="#ff7acd"/>
+            android:layout_height="80dp"
+            android:background="#ff8c78"
+            android:baselineAligned="false"
+            android:id="@+id/dzambulka">
+    </TableRow>
 
     <ListView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/listView"/>
+            android:id="@+id/listView"
+            android:background="#FFF"/>
 </LinearLayout>
