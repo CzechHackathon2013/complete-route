@@ -72,7 +72,7 @@ public class CompanyListDataLoaderTask extends AsyncTask<Bundle, Void, List<Comp
     protected List<Company> doInBackground(Bundle... params) {
 
         // Create the required DAO Factory
-        DAOFactory dao = DAOFactory.getDAOFactory(DAOFactory.MOCK);
+        DAOFactory dao = DAOFactory.getDefaultDAOFactory();
 
         // Create a DAO
         CompanyDAO companyDAO = dao.getCompanyDAO();

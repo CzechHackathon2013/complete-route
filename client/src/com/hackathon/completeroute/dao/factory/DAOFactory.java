@@ -33,8 +33,7 @@ public abstract class DAOFactory {
     // Default DAO factory
     public static final int DEFAULT_FACTORY = MOCK;
 
-    public static DAOFactory getDAOFactory(
-            int whichFactory) {
+    public static DAOFactory getDAOFactory(int whichFactory) {
 
         switch (whichFactory) {
             case JSON:

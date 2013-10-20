@@ -34,6 +34,7 @@ public class Category {
     public Category(String id, String name, String icon) {
         this.id = id;
         this.name = name;
+        this.icon = icon;
         this.companies  = Collections.emptyList();
     }
 

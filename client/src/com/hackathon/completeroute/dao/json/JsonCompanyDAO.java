@@ -19,9 +19,12 @@ package com.hackathon.completeroute.dao.json;
 import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.factory.JsonDAOFactory;
 import com.hackathon.completeroute.dao.json.response.CompaniesResponse;
+import com.hackathon.completeroute.dao.mock.MockDB;
+import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
 import org.json.JSONObject;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -39,7 +42,17 @@ public class JsonCompanyDAO implements CompanyDAO {
      */
     @Override
     public Company getCompanyByName(String name) {
-        throw new UnsupportedOperationException("Not implemented yet.");
+        List<Category> categories = JsonDomain.getInstance().getCategories();
+        for (Category cat: categories) {
+            List<Company> companies = cat.getCompanies();
+            if (companies != null && !companies.isEmpty()) {
+                for (Company comp : companies) {
+                    if (comp.getName().equals(name))
+                        return comp;
+                }
+            }
+        }
+        return null;
     }
 
     /**
@@ -48,9 +61,13 @@ public class JsonCompanyDAO implements CompanyDAO {
      */
     @Override
     public List<Company> getCompaniesByCategory(String category) {
-        JSONObject json = JsonDAOFactory.get(CONTEXT + "/" + category);
-        CompaniesResponse response = JsonDAOFactory.fromJson(json, CompaniesResponse.class);
-        return response.getResult();
+        List<Category> categories = JsonDomain.getInstance().getCategories();
+        for (Category cat: categories) {
+            if (cat.getName().equals(category)) {
+                return cat.getCompanies();
+            }
+        }
+        return Collections.emptyList();
     }
 
 }

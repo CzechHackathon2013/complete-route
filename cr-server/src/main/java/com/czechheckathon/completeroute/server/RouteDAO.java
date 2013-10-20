@@ -19,7 +19,7 @@ public class RouteDAO {
 
     public String getCategories() {
         DBObject query = new BasicDBObject();
-        DBObject projection = new BasicDBObject("_id", true).append("name", true);
+        DBObject projection = new BasicDBObject();
         return executeFind(query, projection);
     }
 

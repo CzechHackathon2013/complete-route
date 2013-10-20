@@ -39,9 +39,13 @@ public class JsonCategoryDAO implements CategoryDAO {
      */
     @Override
     public List<Category> getCategories() {
-        JSONObject json = JsonDAOFactory.get(CONTEXT);
-        CategoriesResponse response = JsonDAOFactory.fromJson(json, CategoriesResponse.class);
-        return response.getResult();
+        JsonDomain domain = JsonDomain.getInstance();
+        if (domain.getCategories() == null) {
+            JSONObject json = JsonDAOFactory.get(CONTEXT);
+            CategoriesResponse response = JsonDAOFactory.fromJson(json, CategoriesResponse.class);
+            domain.setCategories(response.getResult());
+        }
+        return domain.getCategories();
     }
 
 }
