@@ -23,6 +23,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.dao.CompanyDAO;
@@ -101,8 +102,8 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
         tvCallNumber = (TextView) activity.findViewById(R.id.tvCallNumber);
         tvCallNumber.setText(company.getPhone());
 
-        ImageButton btnCall = (ImageButton) activity.findViewById(R.id.route_item_ivCallNumberIcon);
-        btnCall.setOnClickListener(new View.OnClickListener() {
+        ImageView ivCall = (ImageView) activity.findViewById(R.id.route_item_ivCallNumberIcon);
+        ivCall.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -114,8 +115,8 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
 
         });
 
-        ImageButton btnRouteWizard = (ImageButton) activity.findViewById(R.id.route_item_ivRouteWizardIcon);
-        btnRouteWizard.setOnClickListener(new View.OnClickListener() {
+        ImageView ivRouteWizard = (ImageView) activity.findViewById(R.id.route_item_ivRouteWizardIcon);
+        ivRouteWizard.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {

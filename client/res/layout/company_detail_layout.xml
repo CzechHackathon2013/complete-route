@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:orientation="vertical" android:layout_height="fill_parent" android:id="@+id/company_item_layout"
-        android:background="#ff73ff31"
+        android:background="#fff"
         android:baselineAligned="false">
 
     <LinearLayout
@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:orientation="horizontal" android:layout_height="wrap_content"
             android:id="@+id/company_item_layout_inner"
-            android:background="#ffff1217"
+            android:background="#fff"
             android:baselineAligned="false">
 
         <ImageView android:id="@+id/company_item_ivIcon" android:layout_width="wrap_content"
@@ -24,9 +24,9 @@
                       android:background="#ffffeb10" android:layout_marginLeft="5dp">
             <LinearLayout android:layout_width="match_parent" android:orientation="vertical"
                           android:layout_gravity="center_vertical|center_horizontal" android:layout_height="fill_parent"
-                          android:id="@+id/company_list_item_layout" android:background="#ff7cffcb"
+                          android:id="@+id/company_list_item_layout" android:background="#fff"
                           android:layout_marginLeft="0dp">
-                <TextView android:layout_height="wrap_content" android:id="@+id/tvCompanyName" android:textSize="14dip"
+                <TextView android:layout_height="wrap_content" android:id="@+id/tvCompanyName" android:textSize="20sp"
                           android:textStyle="bold" android:text="@string/company_item_name"
                           android:layout_marginLeft="10dip" android:layout_width="match_parent"
                           android:layout_marginRight="20dip" android:textColor="#000000"/>
@@ -39,7 +39,7 @@
                           android:singleLine="true"/>
                 <TextView android:text="@string/company_item_desc" android:layout_marginTop="5dip"
                           android:layout_height="wrap_content" android:id="@+id/tvDescription"
-                          android:layout_width="match_parent" android:textSize="14dip"
+                          android:layout_width="match_parent" android:textSize="16sp"
                           android:layout_marginBottom="5dip"
                           android:layout_marginRight="5dip" android:layout_marginLeft="10dip"
                           android:textStyle="normal" android:textColor="@android:color/black"/>
@@ -50,7 +50,7 @@
 
     </LinearLayout>
 
-    <TextView android:layout_height="wrap_content" android:id="@+id/textView" android:textSize="14dip"
+    <TextView android:layout_height="wrap_content" android:id="@+id/textView" android:textSize="18sp"
               android:textStyle="bold" android:text="@string/route_item_label" android:layout_marginLeft="10dip"
               android:layout_width="match_parent" android:layout_marginRight="10dip" android:textColor="#000000"
               android:layout_marginBottom="10dip" android:layout_marginTop="10dip"
@@ -61,20 +61,20 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|top">
 
-        <ImageButton android:id="@+id/route_item_ivCallNumberIcon" android:layout_width="0dp"
+        <ImageView android:id="@+id/route_item_ivCallNumberIcon" android:layout_width="0dp"
                    android:layout_height="wrap_content" android:layout_gravity="center_vertical"
                    android:layout_marginLeft="0dip" android:src="@drawable/call_route_ico"
                    android:clickable="true" android:contentDescription="@string/app_description"
                    android:layout_weight="1"/>
 
-        <TextView android:layout_height="wrap_content" android:id="@+id/tvCallNumber" android:textSize="14dip"
+        <TextView android:layout_height="wrap_content" android:id="@+id/tvCallNumber" android:textSize="24sp"
                   android:textStyle="bold" android:text="@string/route_item_desc" android:layout_marginLeft="10dip"
-                  android:layout_width="0dp"
+                  android:layout_width="wrap_content"
                   android:layout_marginRight="20dip" android:textColor="#000000"
                   android:layout_gravity="center_vertical"
-                  android:layout_weight="1"/>
+                  android:layout_weight="1" android:textIsSelectable="false" android:gravity="center_vertical|center_horizontal"/>
 
-        <ImageButton android:id="@+id/route_item_ivRouteWizardIcon" android:layout_width="0dp"
+        <ImageView android:id="@+id/route_item_ivRouteWizardIcon" android:layout_width="0dp"
                    android:layout_height="wrap_content"
                    android:layout_marginLeft="0dip" android:src="@drawable/show_route_ico"
                    android:clickable="true" android:contentDescription="@string/app_description"
