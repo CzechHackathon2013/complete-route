@@ -16,11 +16,8 @@
 
 package com.hackathon.completeroute.pojo;
 
-<<<<<<< HEAD
 import java.util.Collections;
-=======
 import java.io.Serializable;
->>>>>>> c83c4959aa88d5a582fe8b9b59f6b7a3bcfa0e7b
 import java.util.List;
 
 /**

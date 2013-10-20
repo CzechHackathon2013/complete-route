@@ -17,15 +17,10 @@
 package com.hackathon.completeroute.dao.mock;
 
 import com.hackathon.completeroute.dao.CompanyDAO;
+import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
 
-<<<<<<< HEAD
 import java.util.*;
-=======
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
->>>>>>> c83c4959aa88d5a582fe8b9b59f6b7a3bcfa0e7b
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
