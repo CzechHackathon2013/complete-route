@@ -16,6 +16,8 @@
 
 package com.hackathon.completeroute.pojo;
 
+import java.util.List;
+
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
@@ -25,11 +27,13 @@ public class Category {
 
     private String id;
     private String name;
+    private String icon;
+    private List<Company> companies;
 
     public Category() {
     }
 
-    public Category(String id, String name) {
+    public Category(String id, String name, String icon) {
         this.id = id;
         this.name = name;
     }
@@ -48,5 +52,21 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public List<Company> getCompanies() {
+        return companies;
+    }
+
+    public void setCompanies(List<Company> companies) {
+        this.companies = companies;
     }
 }
