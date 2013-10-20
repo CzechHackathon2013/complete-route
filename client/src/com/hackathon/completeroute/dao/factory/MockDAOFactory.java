@@ -18,10 +18,8 @@ package com.hackathon.completeroute.dao.factory;
 
 import com.hackathon.completeroute.dao.CategoryDAO;
 import com.hackathon.completeroute.dao.CompanyDAO;
-import com.hackathon.completeroute.dao.RouteDAO;
 import com.hackathon.completeroute.dao.mock.MockCategoryDAO;
 import com.hackathon.completeroute.dao.mock.MockCompanyDAO;
-import com.hackathon.completeroute.dao.mock.MockRouteDAO;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
@@ -36,10 +34,5 @@ public class MockDAOFactory extends DAOFactory {
     @Override
     public CompanyDAO getCompanyDAO() {
         return new MockCompanyDAO();
-    }
-
-    @Override
-    public RouteDAO getRouteDAO() {
-        return new MockRouteDAO();
     }
 }

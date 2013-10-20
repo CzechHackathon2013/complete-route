@@ -18,7 +18,6 @@ package com.hackathon.completeroute.dao.factory;
 
 import com.hackathon.completeroute.dao.CategoryDAO;
 import com.hackathon.completeroute.dao.CompanyDAO;
-import com.hackathon.completeroute.dao.RouteDAO;
 
 /**
  * DAO Factory
@@ -63,7 +62,4 @@ public abstract class DAOFactory {
     public abstract CategoryDAO getCategoryDAO();
 
     public abstract CompanyDAO getCompanyDAO();
-
-    public abstract RouteDAO getRouteDAO();
-
 }

@@ -21,11 +21,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hackathon.completeroute.dao.CategoryDAO;
 import com.hackathon.completeroute.dao.CompanyDAO;
-import com.hackathon.completeroute.dao.RouteDAO;
 import com.hackathon.completeroute.dao.json.JsonCategoryDAO;
 import com.hackathon.completeroute.dao.json.JsonCompanyDAO;
 import com.hackathon.completeroute.dao.json.JsonDAOConfiguration;
-import com.hackathon.completeroute.dao.json.JsonRouteDAO;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
@@ -132,10 +130,5 @@ public class JsonDAOFactory extends DAOFactory {
     @Override
     public CompanyDAO getCompanyDAO() {
         return new JsonCompanyDAO();
-    }
-
-    @Override
-    public RouteDAO getRouteDAO() {
-        return new JsonRouteDAO();
     }
 }
