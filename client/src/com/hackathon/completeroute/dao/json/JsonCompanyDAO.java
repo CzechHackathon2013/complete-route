@@ -16,17 +16,12 @@
 
 package com.hackathon.completeroute.dao.json;
 
-import com.google.gson.reflect.TypeToken;
 import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.factory.JsonDAOFactory;
-import com.hackathon.completeroute.dao.json.response.CategoriesResponse;
 import com.hackathon.completeroute.dao.json.response.CompaniesResponse;
-import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
 import org.json.JSONObject;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,7 +48,7 @@ public class JsonCompanyDAO implements CompanyDAO {
      */
     @Override
     public List<Company> getCompaniesByCategory(String category) {
-        JSONObject json = JsonDAOFactory.get(CONTEXT+"/"+category);
+        JSONObject json = JsonDAOFactory.get(CONTEXT + "/" + category);
         CompaniesResponse response = JsonDAOFactory.fromJson(json, CompaniesResponse.class);
         return response.getResult();
     }

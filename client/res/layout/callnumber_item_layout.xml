@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal" android:layout_height="fill_parent" android:id="@+id/route_item_layout"
+        android:background="#ffadadad"
+        android:focusable="true" android:baselineAligned="false">
+
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top">
+
+        <ImageView android:id="@+id/route_item_ivCallNumberIcon" android:layout_width="0dp"
+                   android:layout_height="wrap_content" android:layout_gravity="center_vertical"
+                   android:layout_marginLeft="0dip" android:src="@drawable/call_route_ico"
+                   android:clickable="true" android:contentDescription="@string/app_description"
+                   android:layout_weight="1"/>
+
+        <TextView android:layout_height="wrap_content" android:id="@+id/tvCallNumber" android:textSize="14dip"
+                  android:textStyle="bold" android:text="@string/route_item_desc" android:layout_marginLeft="10dip"
+                  android:layout_width="0dp"
+                  android:layout_marginRight="20dip" android:textColor="#000000"
+                  android:layout_gravity="center_vertical"
+                  android:layout_weight="1"/>
+
+        <ImageView android:id="@+id/route_item_ivRouteWizardIcon" android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="0dip" android:src="@drawable/show_route_ico"
+                   android:clickable="true" android:contentDescription="@string/app_description"
+                   android:layout_gravity="center_horizontal|right"
+                   android:layout_weight="1"/>
+    </TableRow>
+
+</LinearLayout>
