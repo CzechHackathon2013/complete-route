@@ -39,8 +39,8 @@ public class MockRouteDAO implements RouteDAO {
         company.setCategory("telco");
 
         route = new Route();
-        route.setCompany(company);
-        route.setName("Invoice");
+//        route.setCompany(company);
+//        route.setName("Invoice");
         route.setDescription("Invoice");
         route.setKeypad(153);
     }

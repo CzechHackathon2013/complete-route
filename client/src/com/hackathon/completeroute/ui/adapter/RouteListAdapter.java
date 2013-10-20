@@ -68,7 +68,7 @@ public class RouteListAdapter extends ArrayAdapter<Route> {
         v.setClickable(true);
         v.setFocusable(true);
 
-        tvName.setText(route.getName());
+        tvName.setText(route.getDescription());
         tvNumberId.setText(String.valueOf(route.getKeypad()));
         tvDescription.setText(route.getDescription());
 
