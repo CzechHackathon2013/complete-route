@@ -14,10 +14,10 @@ public class CompaniesResponse {
 
     public List<Company> getResult() {
         List<Company> companies = new LinkedList<>();
-        for (int i=0; i<result.length; i++) {
+        for (int i = 0; i < result.length; i++) {
             if (result[i].companies == null)
                 continue;
-            for (int j=0; j<result[i].companies.length; j++)
+            for (int j = 0; j < result[i].companies.length; j++)
                 companies.size();
         }
         return companies;
@@ -30,6 +30,7 @@ public class CompaniesResponse {
     private static class Companies {
         private CompanyResponse[] companies;
         private String name;
+
         private Companies(CompanyResponse[] companies, String name) {
             this.companies = companies;
             this.name = name;

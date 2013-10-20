@@ -18,14 +18,14 @@ package com.hackathon.completeroute.ui.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.pojo.Route;
-import com.hackathon.completeroute.ui.activity.CompanyDetailActivity;
 
 import java.util.AbstractList;
 
@@ -65,7 +65,7 @@ public class CallListAdapter extends ArrayAdapter<Route> {
         TextView tvCallNumber = (TextView) v.findViewById(R.id.tvCallNumber);
         tvCallNumber.setText(route.getCompany().getPhone());
 
-        ImageView ivCall =  (ImageView) v.findViewById(R.id.route_item_ivCallNumberIcon);
+        ImageView ivCall = (ImageView) v.findViewById(R.id.route_item_ivCallNumberIcon);
         ivCall.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -75,7 +75,7 @@ public class CallListAdapter extends ArrayAdapter<Route> {
 
         });
 
-        ImageView ivRouteWizard =  (ImageView) v.findViewById(R.id.route_item_ivRouteWizardIcon);
+        ImageView ivRouteWizard = (ImageView) v.findViewById(R.id.route_item_ivRouteWizardIcon);
         ivRouteWizard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +87,14 @@ public class CallListAdapter extends ArrayAdapter<Route> {
         v.setFocusable(true);*/
 
 
+        <<<<<<<HEAD:
+        client / src / com / hackathon / completeroute / ui / adapter / CallListAdapter.java
+                =======
+        tvName.setText(route.getDescription());
+        tvNumberId.setText(String.valueOf(route.getKeypad()));
+        tvDescription.setText(route.getDescription());
+        >>>>>>>2 ad23e5dfddd0d7c8df35819941ba274cd32d662:
+        client / src / com / hackathon / completeroute / ui / adapter / RouteListAdapter.java
 
         return v;
 

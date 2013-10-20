@@ -17,6 +17,7 @@
 package com.hackathon.completeroute.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
@@ -25,36 +26,16 @@ public class Route implements Serializable {
 
     public final static String NAME = "id";
 
-    private Company company;
-    private String name;
-    private String description;
     private int keypad;
-    private Route route;
+    private String description;
+    private String company;
+    private List<Route> routes;
 
     public Route() {
     }
 
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
+    public Route(int keypad, String description) {
+        this.keypad = keypad;
         this.description = description;
     }
 
@@ -66,11 +47,27 @@ public class Route implements Serializable {
         this.keypad = keypad;
     }
 
-    public Route getRoute() {
-        return route;
+    public String getDescription() {
+        return description;
     }
 
-    public void setRoute(Route route) {
-        this.route = route;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public List<Route> getRoutes() {
+        return routes;
+    }
+
+    public void setRoutes(List<Route> routes) {
+        this.routes = routes;
     }
 }
