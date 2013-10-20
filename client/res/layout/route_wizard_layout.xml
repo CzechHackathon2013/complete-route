@@ -6,4 +6,25 @@
         android:background="#F2F2FF"
         android:baselineAligned="false">
 
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+    <GridView
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:id="@+id/gridView"
+            android:background="#ff7acd"/>
+
+    <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView"/>
 </LinearLayout>
