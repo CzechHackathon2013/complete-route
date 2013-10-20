@@ -1,11 +1,7 @@
 package com.hackathon.completeroute.dao.mock;
 
-import com.hackathon.completeroute.pojo.Category;
-import com.hackathon.completeroute.pojo.Company;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import com.hackathon.completeroute.pojo.*;
+import java.util.*;
 
 /**
  * @author Michal Dojcar
@@ -25,9 +21,10 @@ public class MockDB {
         categories.add(category);
 
         category = new Category("telco", "Telco", "telco");
-        Company company1 = new Company("O2", "Telefonica O2", "906112567", "o2");
+        Company company1 = new Company("O2", "Telefonica O2", "906112567", "o2_logo");
         company1.setCategory("telco");
-        Company company2 = new Company("Centropol", "Centropol - vitrual operator", "906112567", "centropol");
+        //Route route1 = new Route(1, "")
+        Company company2 = new Company("Centropol", "Centropol - vitrual operator", "906112567", "centropol_logo");
         company2.setCategory("telco");
         category.setCompanies(Arrays.asList(company1, company2));
         categories.add(category);
