@@ -14,7 +14,7 @@
             android:background="#fff"
             android:baselineAligned="false">
 
-        <ImageView android:id="@+id/company_item_ivIcon" android:layout_width="wrap_content"
+        <ImageView android:id="@+id/ivCompanyLogo" android:layout_width="wrap_content"
                    android:layout_height="wrap_content" android:layout_gravity="center_vertical"
                    android:src="@drawable/icon_company"
                    android:contentDescription="@string/company_item_desc"
@@ -26,20 +26,20 @@
                           android:layout_gravity="center_vertical|center_horizontal" android:layout_height="fill_parent"
                           android:id="@+id/company_list_item_layout" android:background="#fff"
                           android:layout_marginLeft="0dp">
-                <TextView android:layout_height="wrap_content" android:id="@+id/tvCompanyName" android:textSize="20sp"
+                <TextView android:layout_height="wrap_content" android:id="@+id/tvCompanyName" android:textSize="24sp"
                           android:textStyle="bold" android:text="@string/company_item_name"
                           android:layout_marginLeft="10dip" android:layout_width="match_parent"
                           android:layout_marginRight="20dip" android:textColor="#000000"/>
                 <TextView android:text="@string/company_item_category" android:layout_marginTop="5dip"
                           android:layout_height="wrap_content" android:id="@+id/tvCategory"
-                          android:layout_width="match_parent" android:textSize="14dip"
+                          android:layout_width="match_parent" android:textSize="18dip"
                           android:layout_marginBottom="5dip"
                           android:layout_marginRight="5dip" android:layout_marginLeft="10dip"
                           android:textStyle="bold|italic" android:textColor="#006633"
                           android:singleLine="true"/>
                 <TextView android:text="@string/company_item_desc" android:layout_marginTop="5dip"
                           android:layout_height="wrap_content" android:id="@+id/tvDescription"
-                          android:layout_width="match_parent" android:textSize="16sp"
+                          android:layout_width="match_parent" android:textSize="15sp"
                           android:layout_marginBottom="5dip"
                           android:layout_marginRight="5dip" android:layout_marginLeft="10dip"
                           android:textStyle="normal" android:textColor="@android:color/black"/>

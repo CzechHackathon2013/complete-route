@@ -30,6 +30,7 @@ import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.factory.DAOFactory;
 import com.hackathon.completeroute.pojo.Company;
 import com.hackathon.completeroute.ui.activity.RouteWizardActivity;
+import com.hackathon.completeroute.ui.adapter.CompanyImageAdapter;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
@@ -91,10 +92,12 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
     @Override
     protected void onPostExecute(final Company company) {
 
+        ImageView ivCompanyLogo = (ImageView)activity.findViewById(R.id.ivCompanyLogo);
         TextView tvCompanyName = (TextView) activity.findViewById(R.id.tvCompanyName);
         TextView tvDescription = (TextView) activity.findViewById(R.id.tvDescription);
         TextView tvCategory = (TextView) activity.findViewById(R.id.tvCategory);
 
+        ivCompanyLogo.setImageResource(CompanyImageAdapter.getThumbs().get(company.getIcon()));
         tvCompanyName.setText(company.getName());
         tvDescription.setText(company.getDescription());
         tvCategory.setText(company.getCategory());

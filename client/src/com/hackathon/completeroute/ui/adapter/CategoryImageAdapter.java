@@ -97,7 +97,4 @@ public class CategoryImageAdapter extends BaseAdapter {
         return view;
     }
 
-    public static Map<String, Integer> getThumbs() {
-        return mThumbs;
-    }
 }

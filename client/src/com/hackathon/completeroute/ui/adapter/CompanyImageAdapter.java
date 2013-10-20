@@ -93,5 +93,9 @@ public class CompanyImageAdapter extends BaseAdapter {
         return view;
     }
 
+    public static Map<String, Integer> getThumbs() {
+        return mThumbs;
+    }
+
 
 }
