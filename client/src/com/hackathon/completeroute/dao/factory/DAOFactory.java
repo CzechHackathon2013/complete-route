@@ -30,7 +30,7 @@ public abstract class DAOFactory {
     public static final int JSON = 1;
     public static final int MOCK = 2;
     // Default DAO factory
-    public static final int DEFAULT_FACTORY = MOCK;
+    public static final int DEFAULT_FACTORY = JSON;
 
     public static DAOFactory getDAOFactory(int whichFactory) {
 

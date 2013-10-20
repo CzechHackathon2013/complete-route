@@ -11,6 +11,7 @@ import java.io.IOException;
  */
 public class CompleteRouteServer {
 
+    private static final String DEFAULT_MONGO_URI = "mongodb://localhost";;
     public static final String DATABASE_NAME = "completeroute";
     public static final String CONTEXT = "completeroute";
 
@@ -69,8 +70,9 @@ public class CompleteRouteServer {
     }
 
     public static void main(String[] args) throws IOException {
-        if (args.length == 0)
-            new CompleteRouteServer("mongodb://localhost");
+        if (args.length == 0) {
+            new CompleteRouteServer(DEFAULT_MONGO_URI);
+        }
         else
             new CompleteRouteServer(args[0]);
     }
