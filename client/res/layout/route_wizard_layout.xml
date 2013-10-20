@@ -16,9 +16,10 @@
             android:layout_marginRight="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text='"Type here what you need"'
+            android:text="@string/keyword_search"
             android:textColor="#7f7f7f"
-            android:textAlignment="center"/>
+            android:inputType="textAutoComplete"
+            />
 
     <TableRow
             android:layout_width="fill_parent"
