@@ -6,12 +6,12 @@ import java.util.*;
 /**
  * @author Michal Dojcar
  */
-public class MockDB {
+public class MockDomain {
 
-    private static MockDB instance;
+    private static MockDomain instance;
     private List<Category> categories;
 
-    private MockDB() {
+    private MockDomain() {
         init();
     }
 
@@ -59,9 +59,9 @@ public class MockDB {
         return categories;
     }
 
-    public static MockDB getInstance() {
+    public static MockDomain getInstance() {
         if (instance == null)
-            instance = new MockDB();
+            instance = new MockDomain();
         return instance;
     }
 }
