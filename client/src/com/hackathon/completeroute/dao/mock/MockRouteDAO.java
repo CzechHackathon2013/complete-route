@@ -17,11 +17,13 @@
 package com.hackathon.completeroute.dao.mock;
 
 import com.hackathon.completeroute.dao.RouteDAO;
+import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
 import com.hackathon.completeroute.pojo.Route;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,28 +31,13 @@ import java.util.List;
  */
 public class MockRouteDAO implements RouteDAO {
 
-    private static Route route;
-
-    static {
-//        Company company = new Company();
-//        company.setDescription("Description");
-//        company.setName("O2");
-//        company.setPhone("906112567");
-//        company.setCategory("telco");
-
-        route = new Route();
-//        route.setCompany(company);
-//        route.setName("Invoice");
-        route.setDescription("Invoice");
-        route.setKeypad(153);
-    }
-
     /**
+     * @param category the category name
      * @param company the company name
      * @return the list of {@link com.hackathon.completeroute.pojo.Route} for the company
      */
     @Override
     public List<Route> getRoutesByCompany(String category, String company) {
-        return new ArrayList<>(Arrays.asList(route));
+        return Collections.emptyList();
     }
 }
