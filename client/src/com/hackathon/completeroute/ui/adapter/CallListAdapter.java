@@ -18,20 +18,21 @@ package com.hackathon.completeroute.ui.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.widget.*;
 import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.pojo.Route;
+import com.hackathon.completeroute.ui.activity.CompanyDetailActivity;
 
 import java.util.AbstractList;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
-public class RouteListAdapter extends ArrayAdapter<Route> {
+public class CallListAdapter extends ArrayAdapter<Route> {
 
     private AbstractList<Route> routes;
     private Activity mActivity;
@@ -43,8 +44,8 @@ public class RouteListAdapter extends ArrayAdapter<Route> {
      * @param textViewResourceId the if of view
      * @param objects            the objects
      */
-    public RouteListAdapter(Activity a, Context context, int textViewResourceId,
-                            AbstractList<Route> objects) {
+    public CallListAdapter(Activity a, Context context, int textViewResourceId,
+                           AbstractList<Route> objects) {
         super(context, textViewResourceId, objects);
         this.routes = objects;
         mActivity = a;
@@ -56,21 +57,36 @@ public class RouteListAdapter extends ArrayAdapter<Route> {
         View v = convertView;
         if (v == null) {
             LayoutInflater vi = mActivity.getLayoutInflater();
-            v = vi.inflate(R.layout.route_item_layout, null);
+            v = vi.inflate(R.layout.callnumber_item_layout, null);
         }
 
         Route route = this.routes.get(position);
 
-        TextView tvName = (TextView) v.findViewById(R.id.tvRouteName);
-        TextView tvNumberId = (TextView) v.findViewById(R.id.tvRouteId);
-        TextView tvDescription = (TextView) v.findViewById(R.id.tvRouteDesc);
+        TextView tvCallNumber = (TextView) v.findViewById(R.id.tvCallNumber);
+        tvCallNumber.setText(route.getCompany().getPhone());
 
-        v.setClickable(true);
-        v.setFocusable(true);
+        ImageView ivCall =  (ImageView) v.findViewById(R.id.route_item_ivCallNumberIcon);
+        ivCall.setOnClickListener(new View.OnClickListener() {
 
-        tvName.setText(route.getName());
-        tvNumberId.setText(String.valueOf(route.getKeypad()));
-        tvDescription.setText(route.getDescription());
+            @Override
+            public void onClick(View v) {
+
+            }
+
+        });
+
+        ImageView ivRouteWizard =  (ImageView) v.findViewById(R.id.route_item_ivRouteWizardIcon);
+        ivRouteWizard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+/*        v.setClickable(true);
+        v.setFocusable(true);*/
+
+
 
         return v;
 

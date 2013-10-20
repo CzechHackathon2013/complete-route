@@ -17,35 +17,27 @@
 package com.hackathon.completeroute.ui.async;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.hackathon.completeroute.R;
 import com.hackathon.completeroute.dao.CompanyDAO;
-import com.hackathon.completeroute.dao.RouteDAO;
 import com.hackathon.completeroute.dao.factory.DAOFactory;
 import com.hackathon.completeroute.pojo.Company;
-import com.hackathon.completeroute.pojo.Route;
-import com.hackathon.completeroute.ui.activity.CompanyDetailActivity;
-import com.hackathon.completeroute.ui.adapter.RouteListAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.hackathon.completeroute.ui.activity.RouteWizardActivity;
 
 /**
  * @author <a href="mailto:hanusto@gmail.com">Tomas Hanus</a>
  */
 public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
 
-    private List<Route> routeList;
-    private Context c;
     private Activity activity;
+    private TextView tvCallNumber;
+    private Company company;
 
     /**
      * Default constructor for loader of list of companies
@@ -54,7 +46,6 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
      */
     public CompanyDataLoaderTask(Activity activity) {
         this.activity = activity;
-        this.c = activity.getApplicationContext();
     }
 
     /**
@@ -79,13 +70,9 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
 
         // Create a DAO
         CompanyDAO companyDAO = dao.getCompanyDAO();
-        RouteDAO routeDAO = dao.getRouteDAO();
-
         String companyName = params[0].getString(Company.NAME);
 
-        Company company = companyDAO.getCompanyByName(companyName);
-        routeList = routeDAO.getRoutesByCompany(company.getCategory(), company.getName());
-
+        company = companyDAO.getCompanyByName(companyName);
         return company;
 
     }
@@ -101,9 +88,7 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
      * @see #onCancelled(Object)
      */
     @Override
-    protected void onPostExecute(Company company) {
-
-        ArrayList<Route> result = new ArrayList<>(routeList);
+    protected void onPostExecute(final Company company) {
 
         TextView tvCompanyName = (TextView) activity.findViewById(R.id.tvCompanyName);
         TextView tvDescription = (TextView) activity.findViewById(R.id.tvDescription);
@@ -113,41 +98,34 @@ public class CompanyDataLoaderTask extends AsyncTask<Bundle, Void, Company> {
         tvDescription.setText(company.getDescription());
         tvCategory.setText(company.getCategory());
 
-        ListView lv;
+        tvCallNumber = (TextView) activity.findViewById(R.id.tvCallNumber);
+        tvCallNumber.setText(company.getPhone());
 
-        lv = (ListView) activity.findViewById(R.id.lvRoute);
-        lv.setAdapter(new RouteListAdapter(activity, c,
-                R.id.lvRoute, result));
+        ImageButton btnCall = (ImageButton) activity.findViewById(R.id.route_item_ivCallNumberIcon);
+        btnCall.setOnClickListener(new View.OnClickListener() {
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            /**
-             * Callback method to be invoked when an item in this AdapterView has
-             * been clicked.
-             * <p/>
-             * Implementers can call getItemAtPosition(position) if they need
-             * to access the data associated with the selected item.
-             *
-             * @param parent   The AdapterView where the click happened.
-             * @param view     The view within the AdapterView that was clicked (this
-             *                 will be a view provided by the adapter)
-             * @param position The position of the view in the adapter.
-             * @param id       The row id of the item that was clicked.
-             */
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onClick(View v) {
 
-                TextView route = (TextView) view.findViewById(R.id.tvRouteName);
-
-                Intent intent = new Intent(c, CompanyDetailActivity.class);
-                intent.putExtra(Route.NAME, route.getText());
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tvCallNumber.getText()));
                 activity.startActivity(intent);
 
-                Toast.makeText(c, c.getString(R.string.route_selected) + ": " + route.getText(),
-                        Toast.LENGTH_SHORT).show();
             }
+
         });
 
+        ImageButton btnRouteWizard = (ImageButton) activity.findViewById(R.id.route_item_ivRouteWizardIcon);
+        btnRouteWizard.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(activity.getApplicationContext(), RouteWizardActivity.class);
+                intent.putExtra(Company.class.getSimpleName(), company);
+                activity.startActivity(intent);
+
+            }
+        });
 
     }
 }
