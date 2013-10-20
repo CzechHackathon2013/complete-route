@@ -32,7 +32,7 @@ public class MockCompanyDAO implements CompanyDAO {
      */
     @Override
     public Company getCompanyByName(String name) {
-        List<Category> categories = MockDB.getInstance().getCategories();
+        List<Category> categories = MockDomain.getInstance().getCategories();
         for (Category cat: categories) {
             List<Company> companies = cat.getCompanies();
             if (companies != null && !companies.isEmpty()) {
@@ -51,7 +51,7 @@ public class MockCompanyDAO implements CompanyDAO {
      */
     @Override
     public List<Company> getCompaniesByCategory(String category) {
-        List<Category> categories = MockDB.getInstance().getCategories();
+        List<Category> categories = MockDomain.getInstance().getCategories();
         for (Category cat: categories) {
             if (cat.getName().equals(category)) {
                 return cat.getCompanies();

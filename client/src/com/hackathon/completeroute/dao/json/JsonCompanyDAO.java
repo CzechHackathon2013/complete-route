@@ -18,11 +18,8 @@ package com.hackathon.completeroute.dao.json;
 
 import com.hackathon.completeroute.dao.CompanyDAO;
 import com.hackathon.completeroute.dao.factory.JsonDAOFactory;
-import com.hackathon.completeroute.dao.json.response.CompaniesResponse;
-import com.hackathon.completeroute.dao.mock.MockDB;
 import com.hackathon.completeroute.pojo.Category;
 import com.hackathon.completeroute.pojo.Company;
-import org.json.JSONObject;
 
 import java.util.Collections;
 import java.util.List;

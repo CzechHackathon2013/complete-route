@@ -19,7 +19,6 @@ package com.hackathon.completeroute.dao.mock;
 import com.hackathon.completeroute.dao.CategoryDAO;
 import com.hackathon.completeroute.pojo.Category;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -32,6 +31,6 @@ public class MockCategoryDAO implements CategoryDAO {
      */
     @Override
     public List<Category> getCategories() {
-        return MockDB.getInstance().getCategories();
+        return MockDomain.getInstance().getCategories();
     }
 }
